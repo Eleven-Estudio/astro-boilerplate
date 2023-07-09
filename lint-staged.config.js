@@ -1,3 +1,3 @@
-module.exports = {
+export default {
 	'*.{astro,js,jsx,ts,tsx}': ['eslint --fix', 'eslint']
 }
