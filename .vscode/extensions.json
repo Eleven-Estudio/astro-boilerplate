@@ -3,7 +3,8 @@
     "astro-build.astro-vscode",
     "usernamehw.errorlens",
     "EditorConfig.EditorConfig",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
   ],
   "unwantedRecommendations": []
 }
