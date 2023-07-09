@@ -83,6 +83,7 @@ All commands are run from the root of the project, from a terminal:
   - [standarJs](https://standardjs.com/)
   - [eslint-plugin-html](https://github.com/BenoitZugmeyer/eslint-plugin-html)
   - [markdownlint](https://github.com/DavidAnson/vscode-markdownlint)
+- [Husky](https://typicode.github.io/husky/)
 - [GitHub Action Workflows](https://github.com/features/actions) set up to run tests and linting on push
 - [Makefile](https://github.com/CodelyTV/typescript-react_library-vite_template/blob/main/Makefile) for standardize how to run projects
 - [.editorconfig](https://editorconfig.org) for sharing the IDE config
