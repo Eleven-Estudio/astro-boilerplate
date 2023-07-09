@@ -1,15 +1,29 @@
 {
-  "name": "astro-template-eleven",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "website",
+  "type": "commonjs",
+  "version": "0.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint:eslint": "eslint . --ext .js,.astro,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.astro,.ts,.tsx --fix"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^1.3.3",
     "astro": "^2.8.0"
+  },
+  "devDependencies": {
+    "eslint": "8.44.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-config-standard": "17.1.0",
+    "eslint-plugin-astro": "0.27.2",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-n": "16.0.1",
+    "eslint-plugin-promise": "6.1.1",
+    "@typescript-eslint/eslint-plugin": "5.61.0",
+    "@typescript-eslint/parser": "5.61.0"
   }
 }
