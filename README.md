@@ -5,11 +5,11 @@
 </p>
 
 <h1 align="center">
-  🚀 Astro template with tailwindcss (by Eleven)
+  🚀 Astro template with React and Tailwindcss (by Eleven)
 </h1>
 
 <p align="center">
-  Template for creating websites with Astro with Tailwindcss following best practices: Continuos Integrations and linting
+  Template for creating websites with Astro with React and Tailwindcss following best practices: Continuos Integrations and linting
 </p>
 
 # ⚡️ **Using this Astro template**
@@ -80,10 +80,13 @@ All commands are run from the root of the project, from a terminal:
 - [TypeScript](https://www.typescriptlang.org) [Pending]
 - [Vitest](https://vitest.dev/) [Pending]
 - [ESLint](https://eslint.org) and [Prettier](https://prettier.io) already configured with:
-  - [standarJs](https://standardjs.com/)
-  - [eslint-plugin-html](https://github.com/BenoitZugmeyer/eslint-plugin-html)
-  - [markdownlint](https://github.com/DavidAnson/vscode-markdownlint)
-- [Husky](https://typicode.github.io/husky/)
+  - [standarjs](https://standardjs.com/)
+  - TypeScript compatible
+  - Astro compatible
+  - Tailwind CSS plugin
+- [husky](https://typicode.github.io/husky/)
+- [lint-staged](https://github.com/okonet/lint-staged)
+- [commitlint](https://commitlint.js.org/#/)
 - [GitHub Action Workflows](https://github.com/features/actions) set up to run tests and linting on push
 - [Makefile](https://github.com/CodelyTV/typescript-react_library-vite_template/blob/main/Makefile) for standardize how to run projects
 - [.editorconfig](https://editorconfig.org) for sharing the IDE config
@@ -99,6 +102,17 @@ Publishing this package we are committing ourselves to the following code qualit
 - 📖 **Well documented ReadMe** showing how to install and use
 - ⚖️ **License favoring Open Source** and collaboration
 
-# 🔀 Related information
+# **Contributions**
 
-We draw some inspiration from [CodelyTV](https://github.com/CodelyTV) projects or templates.
+Everyone is welcome to contribute to this project. Feel free to open an issue if you have question or found a bug.
+
+# **Additional Checks**
+
+This README.md was linted with
+[markdownlint](https://github.com/DavidAnson/vscode-markdownlint)
+
+## **Related information**
+
+We draw some inspiration from [CodelyTV](https://github.com/CodelyTV) and [ixartz](https://github.com/ixartz/Astro-boilerplate) projects or templates.
+
+Made with ♥ by [Eleven Estudio](https://elevenestudio.com)
