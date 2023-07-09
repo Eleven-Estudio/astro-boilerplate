@@ -8,8 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint . --ext .js,.astro,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.astro,.ts,.tsx --fix",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx,.astro .",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx,.astro --quiet --fix .",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -17,6 +17,10 @@
     "astro": "^2.8.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@typescript-eslint/eslint-plugin": "5.61.0",
+    "@typescript-eslint/parser": "5.61.0",
     "eslint": "8.44.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-config-standard": "17.1.0",
@@ -24,8 +28,9 @@
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-n": "16.0.1",
     "eslint-plugin-promise": "6.1.1",
-    "@typescript-eslint/eslint-plugin": "5.61.0",
-    "@typescript-eslint/parser": "5.61.0",
-    "husky": "^8.0.0"
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.0",
+    "prettier-plugin-astro": "^0.10.0"
   }
 }
