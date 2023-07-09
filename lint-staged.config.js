@@ -1,3 +1,3 @@
 module.exports = {
-  '*.{astro,js,jsx,ts,tsx}': ['eslint --fix', 'prettier --write', 'eslint']
+	'*.{astro,js,jsx,ts,tsx}': ['eslint --fix', 'eslint']
 }
