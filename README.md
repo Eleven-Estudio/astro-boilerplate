@@ -1,47 +1,103 @@
-# Astro Starter Kit: Minimal
+<p align="center">
+  <a href="https://elevenestudio.com">
+    <img src="https://drive.google.com/uc?id=1y3czp-T2PxOi2R72PqOoFVGw4lACsSWA&export=download" width="300px" height="125px" alt="Eleven logo"/>
+  </a>
+</p>
 
-```
-npm create astro@latest -- --template minimal
-```
+<h1 align="center">
+  🚀 Astro template with tailwindcss (by Eleven)
+</h1>
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+<p align="center">
+  Template for creating websites with Astro with Tailwindcss following best practices: Continuos Integrations and linting
+</p>
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+# ⚡️ **Using this Astro template**
 
-## 🚀 Project Structure
+1. Create your project based on this template:
+    - a) If you want to create a GitHub repository, we would recommend to use the GitHub "Use this template" button and clone your newly created repository
+    - b) If you prefer to just create a local project, you can use [degit](https://github.com/Rich-Harris/degit):
 
-Inside of your Astro project, you'll see the following folders and files:
+        ```bash
+          npx degit elevenestudio/astro-template-eleven#main my-app
+        ```
+
+2. Update your project meta-information:
+    - [ ] Update the [`package.json`](https://github.com/elevenestudio/astro-template-eleven/blob/main/package.json):
+    - [ ] Specify proper values for the `name`, `author` and `license` properties
+    - [ ] Specify the file name for the `main` and `module` properties
+    - [ ] Change the author in [`LICENSE`](https://github.com/elevenestudio/astro-template-eleven/blob/main/LICENSE)
+    - [ ] Clean up this [`README.md`](https://github.com/elevenestudio/astro-template-eleven/blob/main/README.md)
+
+# 🔦 **Linting**
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `pnpm lint`               | Run linter                                       |
+| `pnpm lint:fix`           | Fix lint issues                                  |
+
+# 🗂️ **Project Structure**
+
+Inside of your project, you'll see the following folders and files:
 
 ```
 /
 ├── public/
+|-- └── images
 ├── src/
+│   └── components/
+│   └── content/
+│   └── layouts/
 │   └── pages/
 │       └── index.astro
+│   └── utils/
 └── package.json
 ```
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React components.
 
 Any static assets, like images, can be placed in the `public/` directory.
 
-## 🧞 Commands
+# 🧞 **Commands**
 
 All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm run dev`             | Starts local dev server at `localhost:3000`      |
+| `pnpm run build`           | Build your production site to `./dist/`          |
+| `pnpm run preview`         | Preview your build locally, before deploying     |
+| `pnpm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+# 🌈 **Tech Stack**
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [Astro](https://astro.build/)
+- [Tailwindcss](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org) [Pending]
+- [Vitest](https://vitest.dev/) [Pending]
+- [ESLint](https://eslint.org) and [Prettier](https://prettier.io) already configured with:
+  - [standarJs](https://standardjs.com/)
+  - [eslint-plugin-html](https://github.com/BenoitZugmeyer/eslint-plugin-html)
+  - [markdownlint](https://github.com/DavidAnson/vscode-markdownlint)
+- [GitHub Action Workflows](https://github.com/features/actions) set up to run tests and linting on push
+- [Makefile](https://github.com/CodelyTV/typescript-react_library-vite_template/blob/main/Makefile) for standardize how to run projects
+- [.editorconfig](https://editorconfig.org) for sharing the IDE config
+
+# 👌 **Eleven Estudio Quality Standards**
+
+Publishing this package we are committing ourselves to the following code quality standards:
+
+- 🤝 Respect **Semantic Versioning**: No breaking changes in patch or minor versions
+- 🤏 No surprises in transitive dependencies: Use the **bare minimum dependencies** needed to meet the purpose
+- 🎯 **One specific purpose** to meet without having to carry a bunch of unnecessary other utilities
+- ✅ **Tests** as documentation and usage examples
+- 📖 **Well documented ReadMe** showing how to install and use
+- ⚖️ **License favoring Open Source** and collaboration
+
+# 🔀 Related information
+
+We draw some inspiration from [CodelyTV](https://github.com/CodelyTV) projects or templates.
