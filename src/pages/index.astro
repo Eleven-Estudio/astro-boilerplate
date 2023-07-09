@@ -1,16 +1,43 @@
 ---
-const hola = 'hola mundo';
+import BaseLayout from '@/layouts/BaseLayout.astro'
 ---
 
-<html lang='en'>
-	<head>
-		<meta charset='utf-8' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-		<meta name='viewport' content='width=device-width' />
-		<meta name='generator' content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Eleven Estudio</h1>
-	</body>
-</html>
+<style>
+  .eleven-brand::after,
+  .eleven-brand::before {
+    content: "";
+    left: 50%;
+    position: absolute;
+    filter: blur(45px);
+    transform: translateZ(0);
+    animation: animate 5s alternate-reverse infinite;
+  }
+
+  .eleven-brand::before{
+    background: linear-gradient(to bottom right,rgba(81, 81, 81, 0),rgba(108, 108, 108, 0),rgba(107, 109, 113, 0.3));;
+    border-radius: 50%;
+    width: 480px;
+    height: 360px;
+    margin-left: -400px;
+    z-index: -2;
+  }
+  .eleven-brand::after {
+    background: radial-gradient(rgba(132, 132, 132, 0.4),rgba(211, 211, 211, 0));
+    width: 240px;
+    height: 180px;
+    z-index: -1;
+  }
+</style>
+
+<BaseLayout
+  title='Eleven Estudio'
+  description='Boilerplate for Astro, a fresh approach to building websites.'
+>
+  <main class='eleven-brand flex flex-col gap-6 items-center justify-center h-screen'>
+    <a href='https://elevenestudio.com/' target='_blank'>
+      <img src='/images/eleven-estudio.png' width={250} />
+    </a>
+    <p class='text-gray-50'>Get started by editing src/index.astro</p>
+    <a href='https://github.com/elevenestudio/astro-template-eleven' class='bg-white rounded-md py-2 px-6 font-semibold text-lg' target='_blank'>Get started</a>
+  </main>
+</BaseLayout>
