@@ -8,5 +8,9 @@ export default defineConfig({
 	// base: '.', // Set a path prefix
 	site: 'https://example.com',
 	// Use to generate your sitemap and canonical URLs in your final build.
-	integrations: [sitemap(), tailwind(), react()]
+	integrations: [
+		sitemap(),
+		tailwind(),
+		react()
+	]
 })
