@@ -40,7 +40,13 @@
       "warn",
       "prefer-single"
     ],
-    "eol-last": "off"
+    "eol-last": "off",
+    "semi": "off", // Don't need ESLint's semi, so turn it off.
+    "astro/semi": [
+      "error",
+      "never"
+      // or { "beforeStatementContinuationChars": "any" | "always" | "never" }
+    ]
   },
   "overrides": [
     {
