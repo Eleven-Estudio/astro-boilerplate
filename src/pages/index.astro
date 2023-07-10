@@ -19,13 +19,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
     width: 480px;
     height: 360px;
     margin-left: -400px;
-    z-index: -2;
   }
   .eleven-brand::after {
     background: radial-gradient(rgba(132, 132, 132, 0.4),rgba(211, 211, 211, 0));
     width: 240px;
     height: 180px;
-    z-index: -1;
   }
 </style>
 
@@ -33,11 +31,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
   title='Eleven Estudio'
   description='Boilerplate for Astro, a fresh approach to building websites.'
 >
-  <main class='eleven-brand flex flex-col gap-6 items-center justify-center h-screen'>
-    <a href='https://elevenestudio.com/' target='_blank'>
+  <main class='eleven-brand flex flex-col gap-6 items-center justify-center h-screen bg-[#0b0b0b]'>
+    <a class='z-10' href='https://elevenestudio.com/' target='_blank'>
       <img src='/images/eleven-estudio.png' width={250} />
     </a>
     <p class='text-gray-50'>Get started by editing src/index.astro</p>
-    <a href='https://github.com/elevenestudio/astro-template-eleven' class='bg-white rounded-md py-2 px-6 font-semibold text-lg' target='_blank'>Get started</a>
+    <a href='https://github.com/elevenestudio/astro-template-eleven' class='bg-white rounded-md py-2 px-6 font-semibold text-lg z-10' target='_blank'>Get started</a>
   </main>
 </BaseLayout>

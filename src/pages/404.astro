@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+---
+
+<BaseLayout>
+  <main class='h-screen flex flex-col justify-center items-center gap-6'>
+    <img class='max-w-[350px]' src='/images/404.svg' alt='404' width={350}>
+    <div class='flex flex-col gap-1 text-center'>
+      <h1 class='text-4xl font-bold text-gray-700'>Oops!, Página no encontrada</h1>
+      <p class='text-2xl text-gray-400'>El enlace puede estar dañado</p>
+      <small class='text-sm text-gray-600'>o la página pudo haber sido removida</small>
+    </div>
+    <a href='/' class='bg-black py-3 px-4 rounded text-white text-sm font-bold hover:bg-slate-900'>Regresar al inicio</a>
+  </main>
+</BaseLayout>
