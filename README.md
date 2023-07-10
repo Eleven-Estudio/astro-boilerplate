@@ -87,6 +87,7 @@ All commands are run from the root of the project, from a terminal:
 - [husky](https://typicode.github.io/husky/)
 - [lint-staged](https://github.com/okonet/lint-staged)
 - [commitlint](https://commitlint.js.org/#/)
+- [ls-lint](https://ls-lint.org/)
 - [GitHub Action Workflows](https://github.com/features/actions) set up to run tests and linting on push
 - [Makefile](https://github.com/CodelyTV/typescript-react_library-vite_template/blob/main/Makefile) for standardize how to run projects
 - [.editorconfig](https://editorconfig.org) for sharing the IDE config

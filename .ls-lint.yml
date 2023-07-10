@@ -1,0 +1,15 @@
+ls:
+  src:
+    .js: kebab-case
+    .jsx: PascalCase
+    .ts: kebab-case
+    .tsx: PascalCase
+    .astro: PascalCase | camelCase
+
+ignore:
+  - src/env.d.ts
+  - node_modules
+  - .vscode
+  - .husky
+  - .git
+  - public/
