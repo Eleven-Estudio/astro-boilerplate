@@ -1,10 +1,10 @@
 ls:
   src:
     .js: kebab-case
-    .jsx: PascalCase
+    .jsx: kebab-case
     .ts: kebab-case
-    .tsx: PascalCase
-    .astro: PascalCase | camelCase
+    .tsx: kebab-case
+    .astro: kebab-case | kebab-case
 
 ignore:
   - src/env.d.ts
