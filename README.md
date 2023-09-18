@@ -46,11 +46,13 @@ Inside of your project, you'll see the following folders and files:
 |-- └── images
 ├── src/
 │   └── components/
+│   └── config/
 │   └── content/
 │   └── layouts/
+│   └── lib/
 │   └── pages/
 │       └── index.astro
-│   └── utils/
+│   └── types/
 └── package.json
 ```
 
