@@ -1,5 +1,5 @@
 ---
-import { AppConfig, OpenGraph } from '@/utils/app-config'
+import { APP_CONFIG, OPEN_GRAPH } from '@/config/app-config'
 
 export interface Props {
   title?: string;
@@ -11,10 +11,10 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 const {
-  title = AppConfig.title,
-  description = AppConfig.description,
-  image = OpenGraph.image,
-  type = OpenGraph.type
+  title = APP_CONFIG.title,
+  description = APP_CONFIG.description,
+  image = OPEN_GRAPH.image,
+  type = OPEN_GRAPH.type
 } = Astro.props as Props
 ---
 
@@ -23,21 +23,26 @@ const {
   <head>
     <meta charset='UTF-8' />
     <meta http-equiv='content-language' content='es-gt' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+
+    <!-- Astro -->
     <meta name='generator' content={Astro.generator} />
 
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name='title' content={title} />
     <meta name='description' content={description} />
-    <meta name='author' content={AppConfig.author} />
-    <meta name='theme-color' content={AppConfig.theme_color} />
+    <meta name='author' content={APP_CONFIG.author} />
+    <meta name='theme-color' content={APP_CONFIG.theme_color} />
     <link rel='alternate' type='application/rss+xml' href='/rss.xml' />
     <link rel='sitemap' type='application/xml' href='/sitemap-index.xml' />
-
-    <!-- Canonical URL -->
     <link rel='canonical' href={canonicalURL} />
+
+    <!-- Favicon -->
+    <link rel='manifest' href='/manifest.webmanifest'>
+    <link rel='icon' href='/favicon.ico' sizes='32x32'>
+    <link rel='icon' href='/icon.svg' type='image/svg+xml'>
+    <link rel='apple-touch-icon' href='/apple-touch-icon.png'><!-- 180×180 -->
 
     <!-- OPEN GRAPH -->
     <meta property='og:url' content={Astro.url} />
@@ -52,6 +57,18 @@ const {
     <meta property='twitter:title' content={title} />
     <meta property='twitter:description' content={description} />
     <meta property='twitter:image' content={image} />
+
+    <!-- STYLES -->
+    <link rel='stylesheet' href='/assets/css/global.css' /> <!-- Minify CSS -->
+
+    <!-- FONTS -->
+    <link
+      rel='preload'
+      href='/fonts/open-sans-var.woff2'
+      as='font'
+      type='font/woff2'
+      crossorigin='anonymous'
+    />
   </head>
   <body>
     <slot />

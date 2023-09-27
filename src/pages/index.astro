@@ -1,4 +1,10 @@
 ---
+import ElevenEstudio from '@/components/icons/eleven-estudio.astro'
+import Email from '@/components/icons/email.astro'
+import Facebook from '@/components/icons/facebook.astro'
+import Instagram from '@/components/icons/instagram.astro'
+import Whatsapp from '@/components/icons/whatsapp.astro'
+import { BUSINESS } from '@/config/business'
 import BaseLayout from '@/layouts/base-layout.astro'
 ---
 
@@ -31,11 +37,17 @@ import BaseLayout from '@/layouts/base-layout.astro'
   title='Eleven Estudio'
   description='Boilerplate for Astro, a fresh approach to building websites.'
 >
-  <main class='eleven-brand flex flex-col gap-6 items-center justify-center h-screen bg-[#0b0b0b]'>
-    <a class='z-10' href='https://elevenestudio.com/' target='_blank'>
-      <img src='/images/eleven-estudio.png' width={250} />
+  <main class='relative eleven-brand flex flex-col gap-6 items-center justify-center h-screen bg-[#0b0b0b]'>
+    <a class='z-10' href={BUSINESS.website} target='_blank' aria-label='Eleven Estudio' title='Link of website of Eleven Estudio' target='_blank'>
+      <ElevenEstudio class='w-64 h-auto' />
     </a>
-    <p class='text-gray-50'>Get started by editing src/index.astro</p>
-    <a href='https://github.com/elevenestudio/astro-template-eleven' class='bg-white rounded-md py-2 px-6 font-semibold text-lg z-10' target='_blank'>Get started</a>
+    <p class='text-gray-50 font-openSans'>Get started by editing src/index.astro</p>
+    <a href='https://github.com/elevenestudio/astro-template-eleven' class='bg-white rounded-md py-2 px-6 text-lg z-10 font-openSans font-bold' target='_blank'>Get started</a>
+    <div class='flex items-center gap-4 absolute bottom-10 left-1/2 transform -translate-x-1/2'>
+      <a href={BUSINESS.social.instagram} target='_blank' rel='noreferrer' aria-label='Instagram' title='Link de Instagram'><Instagram class='w-4 h-4 fill-white' /></a>
+      <a href={BUSINESS.social.facebook} target='_blank' rel='noreferrer' aria-label='Facebook' title='Link de Facebook'><Facebook class='w-4 h-4 fill-white' /></a>
+      <a href={BUSINESS.social.whatsapp} target='_blank' rel='noreferrer' aria-label='WhatsApp' title='Link de WhatsApp'><Whatsapp class='w-4 h-4 fill-white' /></a>
+      <a href={BUSINESS.email.link} target='_blank' rel='noreferrer' aria-label='Facebook' title='Link de Correo'><Email class='w-4 h-4 fill-white' /></a>
+    </div>
   </main>
 </BaseLayout>
