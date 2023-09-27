@@ -22,6 +22,7 @@
 - [ ] Change [`config app`](./config/)
   - [ ] Change APP_CONFIg
   - [ ] Change OPEN_GRAPH Default
+- [ ] Adapt Business Data
 - [ ] Minify Scripts
 - [ ] Minify Styles
 - [ ] Optimize Images
