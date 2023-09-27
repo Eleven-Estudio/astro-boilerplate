@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">
-  🚀 Astro template with React and Tailwindcss (by **Eleven**)
+  🚀 Astro template with React and Tailwindcss (by **Eleven**) and Vercel SSR
 </h1>
 
 <p align="center">
