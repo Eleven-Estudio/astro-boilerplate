@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">
-  🚀 Astro template with React and Tailwindcss (by Eleven)
+  🚀 Astro template with React and Tailwindcss (by **Eleven**)
 </h1>
 
 <p align="center">
@@ -23,10 +23,10 @@
         ```
 
 2. Update your project meta-information:
-    - [ ] Update the [`package.json`](https://github.com/elevenestudio/astro-template-eleven/blob/main/package.json):
+    - [ ] Update the [`package.json`](./package.json):
     - [ ] Specify proper values for the `name`, `author` and `license` properties
     - [ ] Specify the file name for the `main` and `module` properties
-    - [ ] Change the author in [`LICENSE`](https://github.com/elevenestudio/astro-template-eleven/blob/main/LICENSE)
+    - [ ] Change the author in [`LICENSE`](./package.json)
     - [ ] Clean up this [`README.md`](https://github.com/elevenestudio/astro-template-eleven/blob/main/README.md)
 
 # 🔦 **Linting**
@@ -69,7 +69,7 @@ All commands are run from the root of the project, from a terminal:
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
 | `pnpm install`             | Installs dependencies                            |
-| `pnpm run dev`             | Starts local dev server at `localhost:3000`      |
+| `pnpm run dev`             | Starts local dev server at `localhost:4321`      |
 | `pnpm run build`           | Build your production site to `./dist/`          |
 | `pnpm run preview`         | Preview your build locally, before deploying     |
 | `pnpm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
