@@ -19,7 +19,7 @@
     - b) If you prefer to just create a local project, you can use [degit](https://github.com/Rich-Harris/degit):
 
         ```bash
-          npx degit elevenestudio/astro-template-eleven#main my-app
+          npx degit elevenestudio/astro-boilerplate#main my-app
         ```
 
 2. Update your project meta-information:
