@@ -1,0 +1,10 @@
+/* Add all yours fonts */
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400 600 700;
+  font-display: optional;
+  src: url('/fonts/open-sans-var.woff2') format('woff2')
+      url('/fonts/open-sans-var.woff') format('woff');
+}

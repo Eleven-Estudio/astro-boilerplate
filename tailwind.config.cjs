@@ -1,7 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme'
+
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
   theme: {
+    fontFamily: {
+      openSans: ['Open Sans', ...defaultTheme.fontFamily.sans]
+    },
     extend: {
       colors: {
         website: {

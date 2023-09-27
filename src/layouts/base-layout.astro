@@ -57,6 +57,18 @@ const {
     <meta property='twitter:title' content={title} />
     <meta property='twitter:description' content={description} />
     <meta property='twitter:image' content={image} />
+
+    <!-- STYLES -->
+    <link rel='stylesheet' href='/assets/css/global.css' /> <!-- Minify CSS -->
+
+    <!-- FONTS -->
+    <link
+      rel='preload'
+      href='/fonts/open-sans-var.woff2'
+      as='font'
+      type='font/woff2'
+      crossorigin='anonymous'
+    />
   </head>
   <body>
     <slot />

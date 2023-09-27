@@ -23,6 +23,12 @@
   - [ ] Change APP_CONFIg
   - [ ] Change OPEN_GRAPH Default
 - [ ] Minify Scripts
+- [ ] Minify Styles
+- [ ] Optimize Images
+- [ ] Optimize Fonts
+  - [ ] Is a font variable?
+  - [ ] Link preload
+  - [ ] Add fallback font (<https://screenspan.net/fallback>) (<https://web.dev/css-size-adjust/>)
 
 ## **Resources**
 
@@ -34,3 +40,4 @@
 - More info of [astro-imagetools](https://astro-imagetools-docs.vercel.app/)
 - More info of [astro-prefetch](https://docs.astro.build/en/guides/integrations-guide/prefetch/)
 - More info of [astro-sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
+- More info of [Fonts Optimization](https://www.youtube.com/watch?v=G0cOQ79WKZE)
