@@ -4,7 +4,7 @@ ls:
     .jsx: kebab-case
     .ts: kebab-case
     .tsx: kebab-case
-    .astro: kebab-case | kebab-case
+    .astro: kebab-case | kebab-case | regex:\[[A-Za-z]+\]
 
 ignore:
   - src/env.d.ts
