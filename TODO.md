@@ -42,3 +42,6 @@
 - More info of [astro-prefetch](https://docs.astro.build/en/guides/integrations-guide/prefetch/)
 - More info of [astro-sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
 - More info of [Fonts Optimization](https://www.youtube.com/watch?v=G0cOQ79WKZE)
+  - <https://www.zachleat.com/web/glyphhanger/>
+  - <https://www.sarasoueidan.com/blog/glyphhanger/>
+  - <https://henry.codes/writing/how-to-convert-variable-ttf-font-files-to-woff2/>

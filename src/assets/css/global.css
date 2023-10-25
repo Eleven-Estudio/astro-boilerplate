@@ -1,0 +1,11 @@
+/* Add all yours fonts */
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: optional;
+  src: url('/fonts/open-sans-variable.woff2') format('woff2-variations'),
+      url('/fonts/open-sans-variable.woff2') format('woff2');
+  font-variation-settings: "wght" 400;
+}
