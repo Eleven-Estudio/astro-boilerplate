@@ -17,10 +17,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "indent": [
-      "warn",
-      2
-    ],
+    "indent": ["warn", 2],
     "no-unused-vars": "warn",
     "@typescript-eslint/no-unused-vars": [
       "warn",
@@ -32,33 +29,29 @@
     ],
     "no-multiple-empty-lines": "off",
     "no-tabs": "off",
-    "quotes": [
-      "warn",
-      "single"
-    ],
-    "jsx-quotes": [
-      "warn",
-      "prefer-single"
-    ],
+    "quotes": ["warn", "single"],
+    "jsx-quotes": ["warn", "prefer-single"],
     "eol-last": "off",
     "semi": "off", // Don't need ESLint's semi, so turn it off.
     "astro/semi": [
       "error",
       "never"
       // or { "beforeStatementContinuationChars": "any" | "always" | "never" }
+    ],
+    "no-console": [
+      "warn",
+      {
+        "allow": ["warn", "error"]
+      }
     ]
   },
   "overrides": [
     {
-      "files": [
-        "*.astro"
-      ],
+      "files": ["*.astro"],
       "parser": "astro-eslint-parser",
       "parserOptions": {
         "parser": "@typescript-eslint/parser",
-        "extraFileExtensions": [
-          ".astro"
-        ]
+        "extraFileExtensions": [".astro"]
       },
       "rules": {
         "astro/no-set-html-directive": "error"

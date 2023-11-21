@@ -22,6 +22,9 @@ package-lock.json
 # pnpm
 pnpm-lock.yaml
 
+# Bun
+bun.lockb
+
 # Local Netlify folder
 .netlify
 

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "allowJs": false,
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
     "baseUrl": ".",
@@ -16,9 +16,7 @@
     "moduleResolution": "node",
     "noUncheckedIndexedAccess": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     "preserveConstEnums": true,
     "removeComments": true,
@@ -31,9 +29,5 @@
     "target": "ESNext"
   },
   "extends": "astro/tsconfigs/strict",
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.astro"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"]
 }
