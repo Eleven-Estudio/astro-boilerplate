@@ -26,7 +26,8 @@
     "strict": true,
     "strictNullChecks": true,
     // Enable top-level await, and other modern ESM features.
-    "target": "ESNext"
+    "target": "ESNext",
+    "types": ["astro/client"]
   },
   "extends": "astro/tsconfigs/strict",
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"]
