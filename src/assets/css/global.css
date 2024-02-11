@@ -1,5 +1,20 @@
-/* Add all yours fonts */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@layer utilities {
+ /** Add your custom utilities here */
+}
+
+@layer components {
+  /** Add your custom components here */
+}
+
+@layer base {
+  /** Add your custom base styles here */
+}
+
+/* Add all yours fonts */
 @font-face {
   font-family: "Open Sans";
   font-style: normal;
