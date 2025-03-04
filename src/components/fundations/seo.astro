@@ -1,0 +1,65 @@
+---
+import { BUSINESS_CONFIG } from "@/config/business";
+import { AstroSeo } from "@astrolib/seo";
+---
+
+<AstroSeo
+  title={BUSINESS_CONFIG.name}
+  description={BUSINESS_CONFIG.description}
+  canonical={BUSINESS_CONFIG.site}
+  openGraph={{
+    url: BUSINESS_CONFIG.site,
+    title: BUSINESS_CONFIG.name,
+    description: BUSINESS_CONFIG.description,
+    images: [
+      {
+        url: BUSINESS_CONFIG.openGraph,
+        width: 1200,
+        height: 630,
+        alt: "Open Graph Image Alt",
+        type: "image/jpeg",
+      },
+    ],
+    site_name: BUSINESS_CONFIG.name,
+    type: "website",
+    locale: "en_US",
+  }}
+  twitter={{
+    handle: BUSINESS_CONFIG.social?.twitter ?? "@yourhandle",
+    site: BUSINESS_CONFIG.site,
+    cardType: "summary_large_image",
+  }}
+/>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={BUSINESS_CONFIG.site} />
+<meta property="og:title" content={BUSINESS_CONFIG.name} />
+<meta
+  property="og:description"
+  content={BUSINESS_CONFIG.description}
+/>
+<meta
+  property="og:image"
+  content={BUSINESS_CONFIG.openGraph}
+/>
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={BUSINESS_CONFIG.site} />
+<meta property="twitter:title" content={BUSINESS_CONFIG.name} />
+<meta
+  property="twitter:description"
+  content={BUSINESS_CONFIG.description}
+/>
+<meta
+  property="twitter:image"
+  content={BUSINESS_CONFIG.openGraph}
+/>
+
+<!-- Canonical URL -->
+<link rel="canonical" href={BUSINESS_CONFIG.site} />
+
+<!-- Additional SEO -->
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />

@@ -1,63 +1,12 @@
 ---
 import '@/assets/css/global.css'
-
-export interface Props {
-  title?: string;
-  description?: string;
-  image?: string;
-  type?: string;
-}
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-
-const {
-  title = 'title',
-  description = 'description',
-  image = 'image',
-  type = 'type'
-} = Astro.props as Props
+import BaseHead from '@/components/fundations/base-head.astro';
 ---
 
 <!DOCTYPE html>
 <html lang='es' class:list={['scroll-smooth']}>
   <head>
-    <meta charset='UTF-8' />
-    <meta http-equiv='content-language' content='es-gt' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-
-    <!-- Astro -->
-    <meta name='generator' content={Astro.generator} />
-
-    <!-- Primary Meta Tags -->
-    <title>{title}</title>
-    <meta name='title' content={title} />
-    <meta name='description' content={description} />
-    <meta name='author' content='author' />
-    <meta name='theme-color' content='theme-color' />
-    <link rel='alternate' type='application/rss+xml' href='/rss.xml' />
-    <link rel='sitemap' type='application/xml' href='/sitemap-index.xml' />
-    <link rel='canonical' href={canonicalURL} />
-
-    <!-- Favicon -->
-    <link rel='manifest' href='/manifest.webmanifest'>
-    <link rel='icon' href='/favicon.ico' sizes='32x32'>
-    <link rel='icon' href='/icon.svg' type='image/svg+xml'>
-    <link rel='apple-touch-icon' href='/apple-touch-icon.png'><!-- 180×180 -->
-
-    <!-- OPEN GRAPH -->
-    <meta property='og:url' content={Astro.url} />
-    <meta property='og:type' content={type} />
-    <meta property='og:title' content={title} />
-    <meta property='og:description' content={description} />
-    <meta property='og:image' content={image} />
-
-    <!-- TWITTER CARD -->
-    <meta property='twitter:url' content={Astro.url} />
-    <meta property='twitter:card' content='summary_large_image' />
-    <meta property='twitter:title' content={title} />
-    <meta property='twitter:description' content={description} />
-    <meta property='twitter:image' content={image} />
-
+    <BaseHead />
     <!-- FONTS -->
     <link
       rel='preload'
