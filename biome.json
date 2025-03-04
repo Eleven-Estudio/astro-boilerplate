@@ -64,7 +64,7 @@
 				"noUnsafeOptionalChaining": "error",
 				"noUnusedLabels": "error",
 				"noUnusedPrivateClassMembers": "error",
-				"noUnusedVariables": "warn",
+				"noUnusedVariables": "info",
 				"useArrayLiterals": "off",
 				"useIsNan": "error",
 				"useValidForDirection": "error",
@@ -130,7 +130,8 @@
 		"ignore": [
 			"**/dist",
 			"**/.output",
-			"**/node_modules"
+			"**/node_modules",
+			".astro"
 		]
 	},
 	"javascript": {
@@ -161,6 +162,9 @@
 					"style": {
 						"useConst": "off",
 						"useImportType": "off"
+					},
+					"correctness": {
+						"noUnusedVariables": "off"
 					}
 				}
 			}

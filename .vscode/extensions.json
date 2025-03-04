@@ -3,8 +3,10 @@
     "astro-build.astro-vscode",
     "usernamehw.errorlens",
     "EditorConfig.EditorConfig",
-    "dbaeumer.vscode-eslint",
     "bradlc.vscode-tailwindcss",
-    "biomejs.biome"
+    "biomejs.biome",
+    "wix.vscode-import-cost",
+    "YoavBls.pretty-ts-errors",
+    "trailing-spaces.trailing-spaces",
   ]
 }
