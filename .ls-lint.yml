@@ -1,7 +1,5 @@
 ls:
   src:
-    types:
-      .ts: regex:^[a-z]+\.type\.ts$
     .js: kebab-case
     .jsx: kebab-case
     .ts: kebab-case
