@@ -12,4 +12,6 @@ ignore:
   - .vscode
   - .husky
   - .git
-  - public/
+  - public
+  - .astro
+  - .vercel
