@@ -33,8 +33,8 @@
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `bun lint`               | Run linter                                       |
-| `bun lint:fix`           | Fix lint issues                                  |
+| `bun lint`               | Run Biome linter                                 |
+| `bun lint:fix`           | Fix Biome lint issues                           |
 
 # 🗂️ **Project Structure**
 
@@ -81,11 +81,7 @@ All commands are run from the root of the project, from a terminal:
 - [Tailwindcss](https://tailwindcss.com/)
 - [TypeScript](https://www.typescriptlang.org) [Pending]
 - [Vitest](https://vitest.dev/) [Pending]
-- [ESLint](https://eslint.org) and [Prettier](https://prettier.io) already configured with:
-  - [standarjs](https://standardjs.com/)
-  - TypeScript compatible
-  - Astro compatible
-  - Tailwind CSS plugin
+- [Biome](https://biomejs.dev/) for linting and formatting
 - [husky](https://typicode.github.io/husky/)
 - [lint-staged](https://github.com/okonet/lint-staged)
 - [commitlint](https://commitlint.js.org/#/)
@@ -93,6 +89,7 @@ All commands are run from the root of the project, from a terminal:
 - [GitHub Action Workflows](https://github.com/features/actions) set up to run tests and linting on push
 - [Makefile](https://github.com/CodelyTV/typescript-react_library-vite_template/blob/main/Makefile) for standardize how to run projects
 - [.editorconfig](https://editorconfig.org) for sharing the IDE config
+- [Pages CMS](https://pagescms.org/) for managing business data through `.pages.yml` and `business.json`
 
 # 👌 **Eleven Estudio Quality Standards**
 

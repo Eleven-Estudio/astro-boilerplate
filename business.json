@@ -1,0 +1,28 @@
+{
+  "name": "Eleven Estudio",
+  "description": "Somos una firma de arquitectos fundada en el año 2002, apasionados por crear arquitectura que explore posibilidades, emocione e inspire a la comunidad.",
+  "site": "https://www.elevenestudio.com",
+  "openGraph": "/og.png",
+  "lang": "es",
+  "contact": {
+    "tel": {
+      "ext": 502,
+      "number": 45431635
+    },
+    "whatsapp": {
+      "ext": 502,
+      "number": 45431635
+    },
+    "email": "info@elevenestudio.com"
+  },
+  "address": {
+    "location": "Guatemala, Guatemala"
+  },
+  "googleTagManager": {
+    "id": "GTM-XXXXXXX"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/elevenestudio/",
+    "instagram": "https://www.instagram.com/elevenstudio.gt/"
+  }
+}

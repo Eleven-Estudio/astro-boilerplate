@@ -1,22 +1,42 @@
-export const BUSINESS = {
-  name: 'Eleven Corporation S.A',
-  address: 'Silicon Valley',
+import type { Business } from "@/types/business";
+import BUSINESS from "business.json";
+import { parsePhoneNumberFromString  } from "libphonenumber-js";
+
+const DATA_BUSINESS: Business = BUSINESS;
+
+const phoneNumber = `+${DATA_BUSINESS.contact.tel.ext}${DATA_BUSINESS.contact.tel.number}`;
+const parsedPhoneNumber = parsePhoneNumberFromString(phoneNumber, {
+  defaultCountry: "GT",
+  defaultCallingCode: "502",
+  extract: true,
+});
+
+export const BUSINESS_CONFIG = {
+  ...DATA_BUSINESS,
   phone: {
-    prefix: '+502',
-    number: '45431635',
-    format: '+502 45431635',
-    link: 'tel:+50245431635'
+    formatted: parsedPhoneNumber?.formatInternational(),
+    ext: DATA_BUSINESS.contact.tel.ext,
+    number: DATA_BUSINESS.contact.tel.number,
+    country: parsedPhoneNumber?.country,
+    link: `tel:${parsedPhoneNumber?.number}`,
+  },
+  whatsapp: {
+    formatted: parsedPhoneNumber?.formatInternational(),
+    ext: DATA_BUSINESS.contact.whatsapp?.ext,
+    number: DATA_BUSINESS.contact.whatsapp?.number,
+    country: parsedPhoneNumber?.country,
+    link: (message: string) => `https://wa.me/${DATA_BUSINESS.contact.whatsapp?.ext}${DATA_BUSINESS.contact.whatsapp?.number}?text=${message}`,
   },
   email: {
-    address: 'info@elevenestudio.com',
-    link: 'mailto:info@elevenestudio.com'
+    address: DATA_BUSINESS.contact.email,
+    link: `mailto:${DATA_BUSINESS.contact.email}`,
   },
-  website: 'https://elevenestudio.com',
   social: {
-    facebook: 'https://www.facebook.com/elevenestudio',
-    instagram: 'https://www.instagram.com/elevenstudio.gt',
-    twitter: 'https://twitter.com/elevenestudio',
-    linkedin: 'https://www.linkedin.com/company/elevenestudio',
-    whatsapp: 'https://wa.link/yonv7o'
-  }
-}
+    facebook: DATA_BUSINESS.social?.facebook ?? null,
+    instagram: DATA_BUSINESS.social?.instagram ?? null,
+    tiktok: DATA_BUSINESS.social?.tiktok ?? null,
+    youtube: DATA_BUSINESS.social?.youtube ?? null,
+    linkedin: DATA_BUSINESS.social?.linkedin ?? null,
+    twitter: DATA_BUSINESS.social?.twitter ?? null,
+  },
+};
