@@ -3,8 +3,8 @@
     "astro-build.astro-vscode",
     "usernamehw.errorlens",
     "EditorConfig.EditorConfig",
-    "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "biomejs.biome"
   ]
 }
