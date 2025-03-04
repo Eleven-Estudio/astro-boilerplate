@@ -1,0 +1,137 @@
+media: public
+content:
+  - name: business
+    label: Business Config
+    path: business.json
+    type: file
+    icon: building
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+        options:
+          maxLenght: 170
+      - name: site
+        label: URL Website
+        description: "Example: https://elevenestudio.com"
+        type: string
+        required: true
+        pattern: ^(https?:\/\/)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$
+      - name: robots
+        label: Robots
+        type: object
+        hidden: true
+        fields:
+          - name: index
+            label: No Index
+            type: boolean
+            default: false
+          - name: follow
+            label: No Follow
+            type: boolean
+            default: false
+      - name: openGraph
+        label: Open Graph
+        description: Image size must be 1200 x 630 px and must weigh less than 1M
+        required: true
+        type: image
+        options:
+          path: public/
+          input: public/
+          output: /
+          extensions: [ jpg, jpeg, png ]
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - name: tel
+            label: Phone
+            type: object
+            fields:
+              - name: ext
+                description: "Example: 502"
+                label: Extension
+                type: number
+                required: true
+                default: 502
+              - name: number
+                label: Number
+                type: number
+                required: true
+          - name: whatsapp
+            label: WhatsApp
+            type: object
+            fields:
+              - name: ext
+                description: "Example: 502"
+                label: Extension
+                type: number
+                required: false
+                default: 502
+              - name: number
+                label: Number
+                type: number
+                required: false
+          - name: email
+            label: Email
+            type: string
+            required: true
+            pattern: ^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$
+      - name: address
+        label: Address
+        type: object
+        fields:
+          - name: location
+            label: Location
+            type: string
+            required: true
+      - name: googleTagManager
+        label: Google Tag Manager
+        type: object
+        fields:
+          - name: id
+            label: ID
+            type: string
+      - name: social
+        label: Social Media
+        type: object
+        fields:
+          - name: facebook
+            label: Facebook
+            type: string
+          - name: instagram
+            label: Instagram
+            type: string
+          - name: tiktok
+            label: TikTok
+            type: string
+          - name: youtube
+            label: YouTube
+            type: string
+          - name: linkedin
+            label: LinkedIn
+            type: string
+          - name: twitter
+            label: Twitter
+            type: string
+  - name: config
+    label: Info Page
+    path: src/data/config.json
+    type: file
+    fields:
+      - name: category-menu
+        label: Category Slug
+        type: string
+        required: true
+      - name: about-text
+        label: About
+        type: rich-text
+        options:
+          image:
+            path: public/images
+            extensions: [ jpg, jpeg, png ]

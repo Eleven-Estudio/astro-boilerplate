@@ -1,0 +1,119 @@
+---
+import { BUSINESS_CONFIG } from "@/config/business";
+import { cls11 } from "@/lib/utils";
+import Email from "@/components/icons/email.astro";
+import Facebook from "@/components/icons/facebook.astro";
+import Instagram from "@/components/icons/instagram.astro";
+import Linkedin from "@/components/icons/linkedin.astro";
+import Tiktok from "@/components/icons/tiktok.astro";
+import Twitter from "@/components/icons/twitter.astro";
+import Youtube from "@/components/icons/youtube.astro";
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<ul class={cls11(className)} {...rest}>
+  {
+    BUSINESS_CONFIG.email && (
+      <li>
+        <a
+          href={BUSINESS_CONFIG.email.link}
+          class="hover:scale-110 block transition-transform duration-300"
+        >
+          <Email class="size-4 md:size-4 fill-white" />
+          <span class="sr-only">Email</span>
+        </a>
+      </li>
+    )
+  }
+  {
+    BUSINESS_CONFIG.social.facebook && (
+      <li>
+        <a
+          href={BUSINESS_CONFIG.social.facebook}
+          class="hover:scale-110 block transition-transform duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Facebook class="size-4 md:size-4 fill-white" />
+          <span class="sr-only">Facebook</span>
+        </a>
+      </li>
+    )
+  }
+  {
+    BUSINESS_CONFIG.social.instagram && (
+      <li>
+        <a
+          href={BUSINESS_CONFIG.social.instagram}
+          class="hover:scale-110 block transition-transform duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Instagram class="size-4 md:size-4 fill-white" />
+          <span class="sr-only">Instagram</span>
+        </a>
+      </li>
+    )
+  }
+  {
+    BUSINESS_CONFIG.social.linkedin && (
+      <li>
+        <a
+          href={BUSINESS_CONFIG.social.linkedin}
+          class="hover:scale-110 block transition-transform duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Linkedin class="size-4 md:size-4 fill-white" />
+          <span class="sr-only">Linkedin</span>
+        </a>
+      </li>
+    )
+  }
+  {
+    BUSINESS_CONFIG.social.twitter && (
+      <li>
+        <a
+          href={BUSINESS_CONFIG.social.twitter}
+          class="hover:scale-110 block transition-transform duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Twitter class="size-4 md:size-4 fill-white" />
+          <span class="sr-only">Twitter</span>
+        </a>
+      </li>
+    )
+  }
+  {
+    BUSINESS_CONFIG.social.tiktok && (
+      <li>
+        <a
+          href={BUSINESS_CONFIG.social.tiktok}
+          class="hover:scale-110 block transition-transform duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Tiktok class="size-4 md:size-4 fill-white" />
+          <span class="sr-only">Tiktok</span>
+        </a>
+      </li>
+    )
+  }
+  {
+    BUSINESS_CONFIG.social.youtube && (
+      <li>
+        <a
+          href={BUSINESS_CONFIG.social.youtube}
+          class="hover:scale-110 block transition-transform duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Youtube class="size-4 md:size-4 fill-white" />
+          <span class="sr-only">Youtube</span>
+        </a>
+      </li>
+    )
+  }
+</ul>
