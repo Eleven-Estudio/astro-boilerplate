@@ -1,13 +1,26 @@
 ---
 import '@/assets/css/global.css'
-import BaseHead from '@/components/fundations/base-head.astro';
+import Seo from '@/components/fundations/seo.astro';
+import Meta from '@/components/fundations/meta.astro';
+import Favicons from '@/components/fundations/favicons.astro';
+import GtmNoscript from '@/components/gtm-noscript.astro';
 import TailwindIndicator from '@/components/tailwind-indicator.astro';
+import type { AstroSeoProps } from '@astrolib/seo';
+
+interface Props {
+  metadata?: AstroSeoProps;
+}
+
+const { metadata } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang='es' class:list={['scroll-smooth']}>
   <head>
-    <BaseHead />
+    <Meta />
+    <Seo {...metadata} />
+    <Favicons />
+
     <!-- FONTS -->
     <link
       rel='preload'
@@ -18,6 +31,7 @@ import TailwindIndicator from '@/components/tailwind-indicator.astro';
     />
   </head>
   <body>
+    <GtmNoscript />
     <slot />
     <TailwindIndicator />
   </body>
