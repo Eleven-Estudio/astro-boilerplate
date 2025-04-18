@@ -18,6 +18,9 @@ export type Business = {
     };
     email: string;
   };
+  googleTagManager?: {
+    id: string;
+  };
   social?: {
     facebook?: string;
     instagram?: string;

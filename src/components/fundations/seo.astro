@@ -1,19 +1,32 @@
 ---
-import { BUSINESS_CONFIG } from "@/config/business";
-import { AstroSeo } from "@astrolib/seo";
+import { BUSINESS_CONFIG } from '@/config/business'
+import { type AstroSeoProps, AstroSeo } from '@astrolib/seo'
+
+interface Props extends AstroSeoProps {}
+const canonicalDefault = Astro.url.href
+
+const {
+  title = BUSINESS_CONFIG.name,
+  description = BUSINESS_CONFIG.description,
+  canonical = canonicalDefault,
+  openGraph = BUSINESS_CONFIG.openGraph,
+  twitter = BUSINESS_CONFIG.social?.twitter,
+  ...rest
+} = Astro.props
 ---
 
 <AstroSeo
-  title={BUSINESS_CONFIG.name}
-  description={BUSINESS_CONFIG.description}
-  canonical={BUSINESS_CONFIG.site}
+  title={title}
+  titleTemplate={`%s - ${BUSINESS_CONFIG.name}`}
+  description={description}
+  canonical={canonical}
   openGraph={{
-    url: BUSINESS_CONFIG.site,
-    title: BUSINESS_CONFIG.name,
-    description: BUSINESS_CONFIG.description,
+    url: openGraph,
+    title: title,
+    description: description,
     images: [
       {
-        url: BUSINESS_CONFIG.openGraph,
+        url: openGraph,
         width: 1200,
         height: 630,
         alt: "Open Graph Image Alt",
@@ -25,37 +38,28 @@ import { AstroSeo } from "@astrolib/seo";
     locale: "en_US",
   }}
   twitter={{
-    handle: BUSINESS_CONFIG.social?.twitter ?? "@yourhandle",
+    handle: twitter ?? "@yourhandle",
     site: BUSINESS_CONFIG.site,
     cardType: "summary_large_image",
   }}
+  {...rest}
 />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={BUSINESS_CONFIG.site} />
 <meta property="og:title" content={BUSINESS_CONFIG.name} />
-<meta
-  property="og:description"
-  content={BUSINESS_CONFIG.description}
-/>
-<meta
-  property="og:image"
-  content={BUSINESS_CONFIG.openGraph}
-/>
+<meta property="og:description" content={BUSINESS_CONFIG.description} />
+<meta property="og:image" content={BUSINESS_CONFIG.openGraph} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={BUSINESS_CONFIG.site} />
 <meta property="twitter:title" content={BUSINESS_CONFIG.name} />
-<meta
-  property="twitter:description"
-  content={BUSINESS_CONFIG.description}
-/>
-<meta
-  property="twitter:image"
-  content={BUSINESS_CONFIG.openGraph}
-/>
+<meta property="twitter:description" content={BUSINESS_CONFIG.description} />
+<meta property="twitter:image" content={BUSINESS_CONFIG.openGraph} />
+
+<meta name="author" content={BUSINESS_CONFIG.name} />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={BUSINESS_CONFIG.site} />

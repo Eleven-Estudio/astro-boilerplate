@@ -1,0 +1,22 @@
+---
+import { BUSINESS_CONFIG } from "@/config/business";
+
+interface Props {
+  id?: string;
+}
+
+const { id = BUSINESS_CONFIG.googleTagManager?.id ?? undefined } = Astro.props;
+---
+
+<!-- This is opening of <body> --><!-- Google Tag Manager (noscript) -->{
+  id && (
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${id}`}
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      />
+    </noscript>
+  )
+}
