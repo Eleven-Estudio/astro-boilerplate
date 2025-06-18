@@ -119,19 +119,26 @@ content:
           - name: twitter
             label: Twitter
             type: string
-  - name: config
-    label: Info Page
-    path: src/data/config.json
-    type: file
-    fields:
-      - name: category-menu
-        label: Category Slug
-        type: string
-        required: true
-      - name: about-text
-        label: About
-        type: rich-text
-        options:
-          image:
-            path: public/images
-            extensions: [ jpg, jpeg, png ]
+      - name: configuracion
+        label: Configuración
+        type: object
+        fields:
+          - name: emailSender
+            label: Remitente del correo (Email Sender)
+            type: string
+            required: false
+            pattern: ^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$
+          - name: bccEmail
+            label: Correos en copia oculta (BCC)
+            type: array
+            items:
+              type: string
+              pattern: ^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$
+            required: false
+          - name: resendToCompany
+            label: Reenviar a la empresa
+            description: "Si es verdadero, el correo también será enviado a la dirección de correo de la empresa"
+            type: boolean
+            default: true
+
+      
