@@ -1,4 +1,4 @@
-import vercel from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel'
 import sitemap from '@astrojs/sitemap'
 import react from '@astrojs/react'
 import { defineConfig } from 'astro/config'
