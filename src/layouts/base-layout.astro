@@ -1,6 +1,6 @@
 ---
 import '@/assets/css/global.css'
-import Seo from '@/components/fundations/seo.astro';
+import Seoa, { type SEOProps } from '@/components/fundations/seo.astro';
 import Meta from '@/components/fundations/meta.astro';
 import Favicons from '@/components/fundations/favicons.astro';
 import GtmNoscript from '@/components/gtm-noscript.astro';
@@ -8,7 +8,7 @@ import TailwindIndicator from '@/components/tailwind-indicator.astro';
 import type { AstroSeoProps } from '@astrolib/seo';
 
 interface Props {
-  metadata?: AstroSeoProps;
+  metadata?: SEOProps;
 }
 
 const { metadata } = Astro.props;
