@@ -16,6 +16,7 @@
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "tailwind-merge": "^3.3.1",
+    "resend": "^6.0.1",
     "tailwindcss": "latest",
     "vitest": "^3.2.4"
   },
