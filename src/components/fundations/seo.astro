@@ -2,7 +2,12 @@
 import { BUSINESS_CONFIG } from '@/config/business'
 import { type AstroSeoProps, AstroSeo } from '@astrolib/seo'
 
-export interface Props extends AstroSeoProps {}
+export interface SEOProps extends AstroSeoProps {
+  ignoreTitleTemplate?: boolean;
+}
+
+interface Props extends SEOProps {}
+
 const canonicalDefault = Astro.url.href
 
 const {
