@@ -24,5 +24,10 @@
   "social": {
     "facebook": "https://www.facebook.com/elevenestudio/",
     "instagram": "https://www.instagram.com/elevenstudio.gt/"
+  },
+  "settings": {
+    "emailSender": "noreply@correo.com",
+    "bccEmail": ["monitoreo@correo.com"],
+    "resendToCompany": false
   }
 }
