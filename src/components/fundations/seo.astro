@@ -2,9 +2,7 @@
 import { BUSINESS_CONFIG } from '@/config/business'
 import { type AstroSeoProps, AstroSeo } from '@astrolib/seo'
 
-export interface Props extends AstroSeoProps {
-  ignoreTemplate?: boolean;
-}
+export interface Props extends AstroSeoProps {}
 const canonicalDefault = Astro.url.href
 
 const {
@@ -13,7 +11,7 @@ const {
   canonical = canonicalDefault,
   openGraph = {},
   twitter = BUSINESS_CONFIG.social?.twitter,
-  ignoreTemplate = false,
+  ignoreTitleTemplate = false,
   ...rest
 } = Astro.props
 
@@ -29,7 +27,7 @@ const absoluteImageUrl = ogImageUrl?.startsWith('http') ? ogImageUrl :
 
 <AstroSeo
   title={title}
-  titleTemplate={ignoreTemplate ? undefined : `%s - ${BUSINESS_CONFIG.name}`}
+  titleTemplate={ignoreTitleTemplate ? undefined : `%s - ${BUSINESS_CONFIG.name}`}
   description={description}
   canonical={canonical}
   openGraph={{
