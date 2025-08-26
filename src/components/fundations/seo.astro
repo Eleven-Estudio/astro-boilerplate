@@ -2,40 +2,58 @@
 import { BUSINESS_CONFIG } from '@/config/business'
 import { type AstroSeoProps, AstroSeo } from '@astrolib/seo'
 
-interface Props extends AstroSeoProps {}
+export interface Props extends AstroSeoProps {}
 const canonicalDefault = Astro.url.href
 
 const {
   title = BUSINESS_CONFIG.name,
   description = BUSINESS_CONFIG.description,
   canonical = canonicalDefault,
-  openGraph = BUSINESS_CONFIG.openGraph,
+  openGraph = {},
   twitter = BUSINESS_CONFIG.social?.twitter,
+  ignoreTitleTemplate = false,
   ...rest
 } = Astro.props
+
+// Extraer la primera imagen de openGraph si existe
+const ogImage = openGraph?.images?.[0]
+const ogImageUrl = ogImage?.url || BUSINESS_CONFIG.openGraph
+
+// Asegurar que la URL sea absoluta
+const absoluteImageUrl = ogImageUrl?.startsWith('http') ? ogImageUrl :
+  (ogImageUrl?.startsWith('/') ? `${Astro.site}${ogImageUrl}` :
+  (ogImageUrl ? `${Astro.site}/${ogImageUrl}` : BUSINESS_CONFIG.openGraph))
 ---
 
 <AstroSeo
   title={title}
-  titleTemplate={`%s - ${BUSINESS_CONFIG.name}`}
+  titleTemplate={ignoreTitleTemplate ? undefined : `%s - ${BUSINESS_CONFIG.name}`}
   description={description}
   canonical={canonical}
   openGraph={{
-    url: openGraph,
+    url: canonical,
     title: title,
     description: description,
-    images: [
+    images: openGraph?.images?.length ? openGraph.images.map(img => ({
+      url: img.url?.startsWith('http') ? img.url :
+        (img.url?.startsWith('/') ? `${Astro.site}${img.url}` :
+        (img.url ? `${Astro.site}/${img.url}` : BUSINESS_CONFIG.openGraph)),
+      width: img.width || 1200,
+      height: img.height || 630,
+      alt: img.alt || title,
+      type: img.type || "image/jpeg",
+    })) : [
       {
-        url: openGraph,
+        url: absoluteImageUrl,
         width: 1200,
         height: 630,
-        alt: "Open Graph Image Alt",
+        alt: title,
         type: "image/jpeg",
       },
     ],
     site_name: BUSINESS_CONFIG.name,
     type: "website",
-    locale: "en_US",
+    locale: "es_ES",
   }}
   twitter={{
     handle: twitter ?? "@yourhandle",
@@ -45,24 +63,14 @@ const {
   {...rest}
 />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={BUSINESS_CONFIG.site} />
-<meta property="og:title" content={BUSINESS_CONFIG.name} />
-<meta property="og:description" content={BUSINESS_CONFIG.description} />
-<meta property="og:image" content={BUSINESS_CONFIG.openGraph} />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={BUSINESS_CONFIG.site} />
-<meta property="twitter:title" content={BUSINESS_CONFIG.name} />
-<meta property="twitter:description" content={BUSINESS_CONFIG.description} />
-<meta property="twitter:image" content={BUSINESS_CONFIG.openGraph} />
+<!-- Additional Twitter meta tags -->
+<meta name="twitter:image" content={absoluteImageUrl} />
+<meta name="twitter:image:alt" content={title} />
 
 <meta name="author" content={BUSINESS_CONFIG.name} />
 
 <!-- Canonical URL -->
-<link rel="canonical" href={BUSINESS_CONFIG.site} />
+<link rel="canonical" href={canonical} />
 
 <!-- Additional SEO -->
 <meta name="robots" content="index, follow" />

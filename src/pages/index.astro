@@ -3,6 +3,7 @@ import ElevenEstudio from '@/components/icons/eleven-estudio.astro'
 import SocialMedia from '@/components/social-media.astro'
 import { BUSINESS_CONFIG } from '@/config/business'
 import BaseLayout from '@/layouts/base-layout.astro'
+import Button from '@/components/globals/button.astro'
 ---
 
 <style>
@@ -14,6 +15,7 @@ import BaseLayout from '@/layouts/base-layout.astro'
     filter: blur(45px);
     transform: translateZ(0);
     animation: animate 5s alternate-reverse infinite;
+    pointer-events: none;
   }
 
   .eleven-brand::before{
@@ -31,15 +33,18 @@ import BaseLayout from '@/layouts/base-layout.astro'
 </style>
 
 <BaseLayout
-  title={BUSINESS_CONFIG.name}
-  description={BUSINESS_CONFIG.description}
+  metadata={{
+    title: "Astro Template Eleven",
+    description: "Astro Template Eleven",
+    ignoreTitleTemplate: true
+  }}
 >
   <main class='relative eleven-brand flex flex-col gap-6 items-center justify-center h-screen bg-[#0b0b0b]'>
     <a class='z-10' href={BUSINESS_CONFIG.site} target='_blank' aria-label='Eleven Estudio' title='Link of website of Eleven Estudio' target='_blank'>
       <ElevenEstudio class='w-64 h-auto' />
     </a>
     <p class='text-gray-50 font-openSans'>Get started by editing src/index.astro</p>
-    <a href='https://github.com/elevenestudio/astro-template-eleven' class='bg-white rounded-md py-2 px-6 text-lg z-10 font-openSans font-bold' target='_blank'>Get started</a>
+    <Button href='https://github.com/elevenestudio/astro-template-eleven' target='_blank'>Get started</Button>
     <SocialMedia class='flex items-center gap-4 absolute bottom-10 left-1/2 transform -translate-x-1/2' />
   </main>
 </BaseLayout>

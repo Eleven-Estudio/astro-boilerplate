@@ -2,36 +2,33 @@
   "author": "Eleven Estudio (https://github.com/elevenestudio)",
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/react": "4.2.4",
-    "@astrojs/sitemap": "3.3.0",
-    "@astrojs/vercel": "8.1.3",
+    "@astrojs/react": "4.3.0",
+    "@astrojs/sitemap": "3.5.1",
+    "@astrojs/vercel": "8.2.6",
     "@astrolib/seo": "1.0.0-beta.8",
-    "@react-email/components": "^0.1.0",
-    "@sentry/astro": "^9.30.0",
-    "@tailwindcss/vite": "^4.0.9",
-    "astro": "^5.7.4",
+    "@tailwindcss/vite": "^4.1.12",
+    "astro": "^5.13.3",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "libphonenumber-js": "^1.12.4",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "resend": "^4.6.0",
-    "tailwind-merge": "^3.0.2",
+    "libphonenumber-js": "^1.12.13",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss": "latest",
-    "vitest": "^3.0.7",
-    "zod": "^3.25.67"
+    "vitest": "^3.2.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
-    "@ls-lint/ls-lint": "^2.2.3",
+    "@biomejs/biome": "2.2.2",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@ls-lint/ls-lint": "^2.3.1",
     "@tailwindcss/aspect-ratio": "0.4.2",
     "@tailwindcss/typography": "0.5.16",
-    "@types/react": "19.0.10",
-    "@types/react-dom": "19.0.4",
+    "@types/react": "19.1.11",
+    "@types/react-dom": "19.1.8",
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
-    "typescript": "5.8.2"
+    "lint-staged": "^16.1.5",
+    "typescript": "5.9.2"
   },
   "license": "MIT",
   "name": "website",
@@ -48,5 +45,5 @@
     "test": "vitest"
   },
   "type": "module",
-  "version": "1.0.0"
+  "version": "1.1.0"
 }
