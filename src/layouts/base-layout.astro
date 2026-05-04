@@ -6,13 +6,14 @@ import Favicons from "@/components/fundations/favicons.astro";
 import Meta from "@/components/fundations/meta.astro";
 import Seo from "@/components/fundations/seo.astro";
 import TailwindIndicator from "@/components/tailwind-indicator.astro";
+import { BUSINESS_CONFIG } from "@/config/business";
 
 interface Props {
   metadata?: SEOProps;
 }
 
 const { metadata } = Astro.props;
-const gtmId = metadata?.googleTagManagerId;
+const gtmId = BUSINESS_CONFIG.googleTagManager?.id;
 ---
 
 <!DOCTYPE html>
