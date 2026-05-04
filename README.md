@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://elevenestudio.com">
-    <img src="https://drive.google.com/uc?id=1y3czp-T2PxOi2R72PqOoFVGw4lACsSWA&export=download" width="300px" height="125px" alt="Eleven logo"/>
+    <img src="https://assets.elevenestudio.me/6B239B80-eleven-estudio-logo.png" width="328" height="176" alt="Eleven logo"/>
   </a>
 </p>
 
