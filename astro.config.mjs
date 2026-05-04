@@ -1,6 +1,7 @@
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
+import sentry from "@sentry/astro";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 import robotsTxt from "astro-robots-txt";
@@ -8,7 +9,18 @@ import robotsTxt from "astro-robots-txt";
 export default defineConfig({
   base: ".",
   site: "https://example.com",
-  integrations: [sitemap(), react(), robotsTxt()],
+  integrations: [
+    sitemap(),
+    react(),
+    robotsTxt(),
+    sentry({
+      dsn: process.env.SENTRY_DSN,
+      sourceMapsUploadOptions: {
+        project: process.env.SENTRY_PROJECT,
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+      },
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

@@ -30,4 +30,9 @@ export type Business = {
     twitter?: string;
   };
   openGraph?: string;
+  settings?: {
+    emailSender: string;
+    bccEmail?: string[];
+    resendToCompany: boolean;
+  };
 };
