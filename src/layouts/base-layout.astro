@@ -5,7 +5,6 @@ import type { SEOProps } from "astro-seo";
 import Favicons from "@/components/fundations/favicons.astro";
 import Meta from "@/components/fundations/meta.astro";
 import Seo from "@/components/fundations/seo.astro";
-import GtmNoscript from "@/components/gtm-noscript.astro";
 import TailwindIndicator from "@/components/tailwind-indicator.astro";
 
 interface Props {
@@ -13,6 +12,7 @@ interface Props {
 }
 
 const { metadata } = Astro.props;
+const gtmId = metadata?.googleTagManagerId;
 ---
 
 <!DOCTYPE html>
@@ -22,9 +22,23 @@ const { metadata } = Astro.props;
     <Seo {...metadata} />
     <Favicons />
     <Font cssVariable="--font-geist" />
+    <Fragment
+      set:html={gtmId
+        ? `<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');</script>`
+        : ''}
+    />
   </head>
   <body>
-    <GtmNoscript />
+    {gtmId && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+        />
+      </noscript>
+    )}
     <slot />
     <TailwindIndicator />
   </body>
