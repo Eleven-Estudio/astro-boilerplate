@@ -1,6 +1,16 @@
-# Astro Template Eleven
+<p align="center">
+  <a href="https://elevenestudio.com">
+    <img src="https://drive.google.com/uc?id=1y3czp-T2PxOi2R72PqOoFVGw4lACsSWA&export=download" width="300px" height="125px" alt="Eleven logo"/>
+  </a>
+</p>
 
-Plantilla de Astro para sitios web de alto rendimiento, optimizada para SEO y experiencia de desarrollo.
+<h1 align="center">
+  Astro Template Eleven
+</h1>
+
+<p align="center">
+  Plantilla de Astro para sitios web de alto rendimiento, optimizada para SEO y experiencia de desarrollo.
+</p>
 
 ## Valor que te da
 
