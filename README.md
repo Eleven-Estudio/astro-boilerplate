@@ -9,61 +9,61 @@
 </h1>
 
 <p align="center">
-  Plantilla de Astro para sitios web de alto rendimiento, optimizada para SEO y experiencia de desarrollo.
+  High-performance Astro template optimized for SEO and developer experience.
 </p>
 
-## Valor que te da
+## Value You Get
 
-- **SEO listo para producción** — Meta tags, Open Graph, Twitter cards, sitemap, robots.txt
-- **Typo seguro** — TypeScript strict mode con controles de tipos exhaustivos
-- **Code quality automático** — Ultracite + Biome: linting y formatting en cada commit
-- **Fuentes optimizadas** — Geist via astro/fonts con preload y fallbacks automáticos
-- **Dark mode desde el inicio** — CSS variables con Tailwind v4 y modo oscuro listo
-- **UI components** — Sistema de componentes con shadcn/Base UI pattern
+- **Production-ready SEO** — Meta tags, Open Graph, Twitter cards, sitemap, robots.txt
+- **Type-safe** — TypeScript strict mode with exhaustive type checks
+- **Automatic code quality** — Ultracite + Biome: linting and formatting on every commit
+- **Optimized fonts** — Geist via astro/fonts with preload and automatic fallbacks
+- **Dark mode from day one** — CSS variables with Tailwind v4 and dark mode ready
+- **UI components** — Component system with shadcn/Base UI pattern
 
 ## Quick Start
 
 ```bash
-# Clonar template
+# Clone template
 npx degit elevenestudio/astro-template-eleven my-site
 
-# Instalar dependencias
+# Install dependencies
 cd my-site
 pnpm install
 
-# Desarrollar
+# Start developing
 pnpm dev
 ```
 
-## Configuración inicial
+## Initial Setup
 
-1. Editá `business.json` — Datos de tu empresa (nombre, contacto, redes, GTM)
-2. Editá `astro.config.mjs` — `site` con tu URL production
-3. Editá `public/manifest.webmanifest` — Info de tu sitio
+1. Edit `business.json` — Your business data (name, contact, social, GTM)
+2. Edit `astro.config.mjs` — `site` with your production URL
+3. Edit `public/manifest.webmanifest` — Your site info
 
 ## Tech Stack
 
-| Tecnología | Propósito |
-|------------|-----------|
-| Astro v6 | Framework web |
-| React 19 | Islands interactivos |
-| Tailwind v4 | Estilos con CSS variables |
-| TypeScript | Tipado estático |
+| Technology | Purpose |
+|-----------|---------|
+| Astro v6 | Web framework |
+| React 19 | Interactive islands |
+| Tailwind v4 | Styles with CSS variables |
+| TypeScript | Static typing |
 | Biome 2.4 | Linting + formatting |
-| Ultracite | Pipeline de CI/CD |
+| Ultracite | CI/CD pipeline |
 | Vercel | Deployment |
 
-## Comandos
+## Commands
 
 ```bash
-pnpm dev      # Dev server en localhost:4321
-pnpm build    # Build producción
-pnpm preview  # Preview del build
+pnpm dev      # Dev server at localhost:4321
+pnpm build    # Production build
+pnpm preview  # Preview the build
 pnpm check    # Lint + TypeScript
 pnpm fix      # Auto-fix issues
 ```
 
-## Estructura
+## Structure
 
 ```
 src/
@@ -73,34 +73,34 @@ src/
 │   ├── globals/      # Button, etc.
 │   ├── icons/        # SVG icons
 │   └── ui/           # shadcn-style components
-├── config/           # business.ts (datos de empresa)
+├── config/           # business.ts (business data)
 ├── layouts/          # base-layout.astro
 ├── lib/              # utils.ts (cn function)
-└── pages/            # Rutas de Astro
+└── pages/            # Astro routes
 ```
 
-## Configuración de negocio
+## Business Configuration
 
-`business.json` es la fuente de verdad para:
+`business.json` is the source of truth for:
 
 ```json
 {
-  "name": "Tu Empresa",
-  "site": "https://tuempresa.com",
+  "name": "Your Business",
+  "site": "https://yourbusiness.com",
   "contact": { "tel": {...}, "email": "...", "whatsapp": {...} },
   "social": { "facebook": "...", "instagram": "...", "linkedin": "..." },
   "googleTagManager": { "id": "GTM-XXXXXXX" }
 }
 ```
 
-## Deployment a Vercel
+## Deploy to Vercel
 
 ```bash
 pnpm build
 ```
 
-Vercel detecta automáticamente la configuración del adapter en `astro.config.mjs`.
+Vercel automatically detects the adapter configuration in `astro.config.mjs`.
 
 ---
 
-Hecho con ♥ por [Eleven Estudio](https://elevenestudio.com)
+Made with ♥ by [Eleven Estudio](https://elevenestudio.com)
