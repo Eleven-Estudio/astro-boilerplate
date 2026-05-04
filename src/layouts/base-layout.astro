@@ -1,37 +1,45 @@
 ---
-import '@/assets/css/global.css'
-import Seo, { type SEOProps } from '@/components/fundations/seo.astro';
-import Meta from '@/components/fundations/meta.astro';
-import Favicons from '@/components/fundations/favicons.astro';
-import GtmNoscript from '@/components/gtm-noscript.astro';
-import TailwindIndicator from '@/components/tailwind-indicator.astro';
-import type { AstroSeoProps } from '@astrolib/seo';
+import "@/assets/css/global.css";
+import { Font } from "astro:assets";
+import Favicons from "@/components/fundations/favicons.astro";
+import Meta from "@/components/fundations/meta.astro";
+import type { SeoProps } from "@/components/fundations/seo.astro";
+import Seo from "@/components/fundations/seo.astro";
+import TailwindIndicator from "@/components/tailwind-indicator.astro";
+import { BUSINESS_CONFIG } from "@/config/business";
 
 interface Props {
-  metadata?: SEOProps;
+  metadata?: SeoProps;
 }
 
 const { metadata } = Astro.props;
+const gtmId = BUSINESS_CONFIG.googleTagManager?.id;
 ---
 
 <!DOCTYPE html>
-<html lang='es' class:list={['scroll-smooth']}>
+<html lang="es" class:list={['scroll-smooth']}>
   <head>
     <Meta />
-    <Seo {...metadata} />
+    <Seo metadata={metadata} />
     <Favicons />
-
-    <!-- FONTS -->
-    <link
-      rel='preload'
-      href='/fonts/open-sans-variable.woff2'
-      as='font'
-      type='font/woff2'
-      crossorigin='anonymous'
+    <Font cssVariable="--font-geist" />
+    <Fragment
+      set:html={gtmId
+        ? `<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');</script>`
+        : ''}
     />
   </head>
   <body>
-    <GtmNoscript />
+    {gtmId && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+        />
+      </noscript>
+    )}
     <slot />
     <TailwindIndicator />
     <script src="@/scripts/eleven.ts"></script>

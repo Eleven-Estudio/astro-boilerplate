@@ -1,22 +1,22 @@
-import vercel from '@astrojs/vercel'
-import sitemap from '@astrojs/sitemap'
-import react from '@astrojs/react'
-import { defineConfig } from 'astro/config'
-import tailwindcss from '@tailwindcss/vite'
-import sentry from '@sentry/astro';
+import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
+import vercel from "@astrojs/vercel";
+import sentry from "@sentry/astro";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig, fontProviders } from "astro/config";
+import robotsTxt from "astro-robots-txt";
 
-// https://astro.build/config
 export default defineConfig({
-  base: '.', // Set a path prefix
-  site: 'https://example.com',
-  // Use to generate your sitemap and canonical URLs in your final build.
+  base: ".",
+  site: "https://example.com",
   integrations: [
-    sitemap(), 
-    react(), 
-      sentry({
-      dsn: 'https://examplePublicKey@o0.ingest.sentry.io/0',
+    sitemap(),
+    react(),
+    robotsTxt(),
+    sentry({
+      dsn: process.env.SENTRY_DSN,
       sourceMapsUploadOptions: {
-        project: 'proyecto-ejemplo',
+        project: process.env.SENTRY_PROJECT,
         authToken: process.env.SENTRY_AUTH_TOKEN,
       },
     }),
@@ -24,6 +24,20 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  output: 'server',
-  adapter: vercel()
-})
+  output: "server",
+  adapter: vercel(),
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: "Geist",
+      cssVariable: "--font-geist",
+      weights: ["100 900"],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: "Geist Mono",
+      cssVariable: "--font-geist-mono",
+      weights: ["100 900"],
+    },
+  ],
+});

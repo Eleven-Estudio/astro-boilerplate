@@ -1,10 +1,8 @@
 export const ROUTE = {
-    HOME: {
-        title: "Inicio",
-        path: "/",
-    }
+  HOME: {
+    title: "Inicio",
+    path: "/",
+  },
 };
 
-export const ROUTES = [
-    ROUTE.HOME,
-];
+export const ROUTES = [ROUTE.HOME];

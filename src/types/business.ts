@@ -18,9 +18,6 @@ export type Business = {
     };
     email: string;
   };
-  address: {
-    location: string;
-  };
   googleTagManager?: {
     id: string;
   };
@@ -33,9 +30,9 @@ export type Business = {
     twitter?: string;
   };
   openGraph?: string;
-  settings: {
-    emailSender: string
-    bccEmail?: Array<string>
-    resendToCompany: boolean
-  }
+  settings?: {
+    emailSender: string;
+    bccEmail?: string[];
+    resendToCompany: boolean;
+  };
 };

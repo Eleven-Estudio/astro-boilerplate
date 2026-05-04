@@ -1,6 +1,7 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const button = cva(
   "inline-flex items-center justify-center gap-2 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-website-primary focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer font-medium",
@@ -18,7 +19,7 @@ const button = cva(
         lg: "px-6 py-3 text-lg",
       },
     },
-  },
+  }
 );
 
 type BaseProps = VariantProps<typeof button> & {
@@ -39,11 +40,8 @@ export type Props = ButtonProps | LinkProps;
 
 const {
   class: className,
-  //@ts-ignore
   variant = "primary",
-  //@ts-ignore
   size = "md",
-  //@ts-ignore
   disabled = false,
   href,
   ...props
@@ -53,14 +51,14 @@ const {
 {href ? (
   <a
     href={href}
-    class={button({ variant, size, className })}
+    class={cn(button({ variant, size }), className)}
     {...(props as any)}
   >
     <slot />
   </a>
 ) : (
   <button
-    class={button({ variant, size, className })}
+    class={cn(button({ variant, size }), className)}
     disabled={disabled}
     {...(props as any)}
   >

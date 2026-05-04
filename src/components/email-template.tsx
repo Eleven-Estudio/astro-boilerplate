@@ -1,7 +1,7 @@
 import {
   Body,
-  Container,
   Column,
+  Container,
   Head,
   Hr,
   Html,
@@ -10,67 +10,67 @@ import {
   Preview,
   Row,
   Section,
+  Tailwind,
   Text,
-  Tailwind
-} from '@react-email/components'
-import { twMerge } from 'tailwind-merge'
+} from "@react-email/components";
+import { twMerge } from "tailwind-merge";
 
 export interface IFormContactData {
-  name: string
-  value: string | number | null | undefined
-  showEmpty?: boolean
-  colSpan?: 'full' | 'normal'
+  colSpan?: "full" | "normal";
+  name: string;
+  showEmpty?: boolean;
+  value: string | number | null | undefined;
 }
 
 export interface IEmailTemplate {
-  preview: string
-  title?: string
-  subtitle?: string | null
-  logo: {
-    src: string
-    width?: number
-    alt?: string
-    className?: string
-  }
   business: {
-    name: string
-    website: string
-    contactEmail: string
-  }
-  data: Array<IFormContactData>
-  lang?: 'es' | 'en'
+    name: string;
+    website: string;
+    contactEmail: string;
+  };
+  data: IFormContactData[];
+  lang?: "es" | "en";
+  logo: {
+    src: string;
+    width?: number;
+    alt?: string;
+    className?: string;
+  };
+  preview: string;
+  subtitle?: string | null;
+  title?: string;
 }
 
-const resetText = { margin: 0 }
+const resetText = { margin: 0 };
 
 const translations = {
   es: {
-    consultant: 'Un consultor se pondrá en contacto con usted en breve.',
-    moreInfo: 'Para más información, contacta a:',
-    poweredBy: 'Powered by',
+    consultant: "Un consultor se pondrá en contacto con usted en breve.",
+    moreInfo: "Para más información, contacta a:",
+    poweredBy: "Powered by",
     socialLinks: {
-      instagram: 'Instagram',
-      whatsapp: 'WhatsApp',
-      facebook: 'Facebook',
-      helpCenter: 'Centro de ayuda'
+      instagram: "Instagram",
+      whatsapp: "WhatsApp",
+      facebook: "Facebook",
+      helpCenter: "Centro de ayuda",
     },
-    contactUs: 'Contacta a nosotros si tienes alguna pregunta.',
-    copyright: 'Todos los derechos reservados.'
+    contactUs: "Contacta a nosotros si tienes alguna pregunta.",
+    copyright: "Todos los derechos reservados.",
   },
   en: {
-    consultant: 'A consultant will contact you shortly.',
-    moreInfo: 'For more information, contact:',
-    poweredBy: 'Powered by',
+    consultant: "A consultant will contact you shortly.",
+    moreInfo: "For more information, contact:",
+    poweredBy: "Powered by",
     socialLinks: {
-      instagram: 'Instagram',
-      whatsapp: 'WhatsApp',
-      facebook: 'Facebook',
-      helpCenter: 'Help Center'
+      instagram: "Instagram",
+      whatsapp: "WhatsApp",
+      facebook: "Facebook",
+      helpCenter: "Help Center",
     },
-    contactUs: 'Contact us if you have any questions.',
-    copyright: 'All rights reserved.'
-  }
-}
+    contactUs: "Contact us if you have any questions.",
+    copyright: "All rights reserved.",
+  },
+};
 export const EmailContact = ({
   preview,
   title,
@@ -78,9 +78,9 @@ export const EmailContact = ({
   logo,
   business,
   data,
-  lang = 'es'
+  lang = "es",
 }: IEmailTemplate) => {
-  const t = translations[lang]
+  const t = translations[lang];
 
   return (
     <Html>
@@ -88,158 +88,160 @@ export const EmailContact = ({
       <Preview>{preview}</Preview>
       <Tailwind>
         <Body
-          className='bg-white'
+          className="bg-white"
           style={{
             fontFamily:
-              '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
+              '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
           }}
         >
-          <Container className='border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] w-[465px]'>
+          <Container className="mx-auto my-[40px] w-[465px] rounded border border-[#eaeaea] border-solid p-[20px]">
             {/* HEADER */}
 
             {/* LOGO */}
-            <Section className='mt-[32px] max-w-[600px]'>
-              <Link href={business.website} className='no-underline'>
+            <Section className="mt-[32px] max-w-[600px]">
+              <Link className="no-underline" href={business.website}>
                 <Img
+                  alt={logo?.alt ?? business.name}
+                  className={twMerge(
+                    "mx-auto my-0 h-auto",
+                    logo?.className ?? ""
+                  )}
                   src={logo.src}
                   // width={logo.height}
                   // height={logo.width}
                   style={{
                     maxWidth: `${logo?.width ?? 112}px`,
-                    width: `${logo?.width ?? 112}px`
+                    width: `${logo?.width ?? 112}px`,
                   }}
-                  alt={logo?.alt ?? business.name}
-                  className={twMerge(
-                    'my-0 mx-auto h-auto',
-                    logo?.className ?? ''
-                  )}
                 />
               </Link>
             </Section>
 
-            <Section className='max-w-[600px]'>
-              <Text className='text-black font-bold text-[24px] text-center p-0 my-[20px] mx-0'>
+            <Section className="max-w-[600px]">
+              <Text className="mx-0 my-[20px] p-0 text-center font-bold text-[24px] text-black">
                 {title}
               </Text>
               {subtitle !== null && (
-                <Text className='text-black text-[14px] leading-[24px]'>
+                <Text className="text-[14px] text-black leading-[24px]">
                   {subtitle}
                 </Text>
               )}
             </Section>
 
             {/* BODY */}
-            <Section className='max-w-[600px]'>
+            <Section className="max-w-[600px]">
               {data.map((input) => {
-                if (!input?.showEmpty && !input?.value) {
-                  return null
+                if (!(input?.showEmpty || input?.value)) {
+                  return null;
                 }
 
                 if (!input?.colSpan) {
                   return (
                     <Row key={input.name}>
-                      <Column className='text-black text-[14px] font-bold leading-[18px] w-[50%] pr-6 align-top py-2'>
+                      <Column className="w-[50%] py-2 pr-6 align-top font-bold text-[14px] text-black leading-[18px]">
                         {input.name}:
                       </Column>
-                      <Column className='text-black text-[14px] leading-[18px] w-[50%] align-top py-2'>
-                        {input.value ?? ''}
+                      <Column className="w-[50%] py-2 align-top text-[14px] text-black leading-[18px]">
+                        {input.value ?? ""}
                       </Column>
                     </Row>
-                  )
+                  );
                 }
 
-                if (input.colSpan === 'full') {
+                if (input.colSpan === "full") {
                   return (
                     <>
                       <Row>
-                        <Column className='text-black text-[14px] font-bold leading-[18px] w-[50%] pr-6 align-top py-2'>
+                        <Column className="w-[50%] py-2 pr-6 align-top font-bold text-[14px] text-black leading-[18px]">
                           {input.name}:
                         </Column>
                       </Row>
                       <Row>
-                        <Column className='text-black text-[14px] leading-[18px] w-[50%] align-top py-2'>
+                        <Column className="w-[50%] py-2 align-top text-[14px] text-black leading-[18px]">
                           {input.value}
                         </Column>
                       </Row>
                     </>
-                  )
+                  );
                 }
+
+                return null;
               })}
             </Section>
 
             {/* FOOTER BUSINESS */}
-            <Section className='max-w-[600px]'>
-              <Text className='text-black text-[14px] leading-[24px]'>
+            <Section className="max-w-[600px]">
+              <Text className="text-[14px] text-black leading-[24px]">
                 {t.consultant}
               </Text>
-              <Text className='text-black text-[14px] leading-[18px]'>
+              <Text className="text-[14px] text-black leading-[18px]">
                 {t.moreInfo} <br />
                 <Link
+                  className="text-blue-600 no-underline"
                   href={`mailto:${business.contactEmail}`}
-                  className='text-blue-600 no-underline'
                 >
                   {business.contactEmail}
                 </Link>
               </Text>
             </Section>
 
-            <Hr className='border border-solid border-[#eaeaea] my-[16px] mx-0 w-full' />
+            <Hr className="mx-0 my-[16px] w-full border border-[#eaeaea] border-solid" />
 
             {/* FOOTER */}
-            <Section className='max-w-[560px] mx-auto py-1 pb-[22px]'>
+            <Section className="mx-auto max-w-[560px] py-1 pb-[22px]">
               <Row>
                 <Text
+                  className="py-4 text-center text-[#AFAFAF] text-sm"
                   style={resetText}
-                  className='text-center py-4 text-[#AFAFAF] text-sm'
                 >
                   {t.poweredBy}
                 </Text>
               </Row>
               <Row>
-                <Column className='text-center mb-4 pt-1 pb-4'>
+                <Column className="mb-4 pt-1 pb-4 text-center">
                   <Link
-                    href='https://elevenestudio.link/web'
-                    className='no-underline'
+                    className="no-underline"
+                    href="https://elevenestudio.link/web"
                   >
                     <Img
-                      src='https://storage.elevenestudio.me/logo-eleven.png'
-                      width={1256}
+                      alt="Eleven Estudio"
+                      className="mx-auto h-auto w-[120px] max-w-[120px]"
                       height={494}
-                      alt='Eleven Estudio'
-                      className='mx-auto max-w-[120px] w-[120px] h-auto'
+                      src="https://storage.elevenestudio.me/logo-eleven.png"
+                      width={1256}
                     />
                   </Link>
                 </Column>
               </Row>
-              <Row className='w-fit mx-auto'>
-                <Column className='text-center pr-4 py-4'>
+              <Row className="mx-auto w-fit">
+                <Column className="py-4 pr-4 text-center">
                   <Link
-                    href='https://elevenestudio.link/ig'
-                    className='text-center text-gray-400 text-sm underline'
+                    className="text-center text-gray-400 text-sm underline"
+                    href="https://elevenestudio.link/ig"
                   >
                     {t.socialLinks.instagram}
                   </Link>
                 </Column>
-                <Column className='text-center pr-4 py-4'>
+                <Column className="py-4 pr-4 text-center">
                   <Link
-                    href='https://elevenestudio.link/wa'
-                    className='text-center text-gray-400 text-sm underline'
+                    className="text-center text-gray-400 text-sm underline"
+                    href="https://elevenestudio.link/wa"
                   >
                     {t.socialLinks.whatsapp}
                   </Link>
                 </Column>
-                <Column className='text-center pr-4 py-4'>
+                <Column className="py-4 pr-4 text-center">
                   <Link
-                    href='https://elevenestudio.link/fb'
-                    className='text-center text-gray-400 text-sm underline'
+                    className="text-center text-gray-400 text-sm underline"
+                    href="https://elevenestudio.link/fb"
                   >
                     {t.socialLinks.facebook}
                   </Link>
                 </Column>
-                <Column className='text-center py-4'>
+                <Column className="py-4 text-center">
                   <Link
-                    href='https://elevenestudio.link/help-center'
-                    className='text-center text-gray-400 text-sm underline'
+                    className="text-center text-gray-400 text-sm underline"
+                    href="https://elevenestudio.link/help-center"
                   >
                     {t.socialLinks.helpCenter}
                   </Link>
@@ -247,18 +249,18 @@ export const EmailContact = ({
               </Row>
               <Row>
                 <Text
+                  className="mx-auto max-w-[65ch] py-1 text-center text-[#AFAFAF] text-sm leading-snug"
                   style={resetText}
-                  className='py-1 text-[#AFAFAF] text-sm text-center max-w-[65ch] leading-snug mx-auto'
                 >
                   {t.contactUs}
                 </Text>
               </Row>
               <Row>
                 <Text
+                  className="py-1 text-center text-[#AFAFAF] text-sm"
                   style={resetText}
-                  className='py-1 text-[#AFAFAF] text-sm text-center'
                 >
-                  © {new Date().getFullYear()} Eleven Corporation, S.A.{' '}
+                  © {new Date().getFullYear()} Eleven Corporation, S.A.{" "}
                   {t.copyright}
                 </Text>
               </Row>
@@ -267,7 +269,7 @@ export const EmailContact = ({
         </Body>
       </Tailwind>
     </Html>
-  )
-}
+  );
+};
 
-export default EmailContact
+export default EmailContact;

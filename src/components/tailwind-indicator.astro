@@ -2,8 +2,7 @@
 const view = import.meta.env.MODE;
 ---
 
-{
-  view === "development" && (
+{view === "development" && (
     <div class="fixed bottom-1 left-1 z-50 flex size-6 items-center justify-center rounded-full bg-gray-800 p-3 font-mono text-xs text-white">
       <div class="block sm:hidden">xs</div>
       <div class="hidden sm:block md:hidden">sm</div>
@@ -12,5 +11,4 @@ const view = import.meta.env.MODE;
       <div class="hidden xl:block 2xl:hidden">xl</div>
       <div class="hidden 2xl:block">2xl</div>
     </div>
-  )
-}
+  )}

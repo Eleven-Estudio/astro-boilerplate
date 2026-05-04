@@ -1,6 +1,6 @@
-import type { Business } from "@/types/business";
 import BUSINESS from "business.json";
-import { parsePhoneNumberFromString  } from "libphonenumber-js";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
+import type { Business } from "@/types/business";
 
 const DATA_BUSINESS: Business = BUSINESS;
 
@@ -25,7 +25,8 @@ export const BUSINESS_CONFIG = {
     ext: DATA_BUSINESS.contact.whatsapp?.ext,
     number: DATA_BUSINESS.contact.whatsapp?.number,
     country: parsedPhoneNumber?.country,
-    link: (message: string) => `https://wa.me/${DATA_BUSINESS.contact.whatsapp?.ext}${DATA_BUSINESS.contact.whatsapp?.number}?text=${message}`,
+    link: (message: string) =>
+      `https://wa.me/${DATA_BUSINESS.contact.whatsapp?.ext}${DATA_BUSINESS.contact.whatsapp?.number}?text=${message}`,
   },
   email: {
     address: DATA_BUSINESS.contact.email,

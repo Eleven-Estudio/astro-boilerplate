@@ -1,82 +1,56 @@
 ---
-import { BUSINESS_CONFIG } from '@/config/business'
-import { type AstroSeoProps, AstroSeo } from '@astrolib/seo'
+import type { SEOProps } from "astro-seo";
+import { SEO } from "astro-seo";
+import { BUSINESS_CONFIG } from "@/config/business";
 
-export interface SEOProps extends AstroSeoProps {
-  ignoreTitleTemplate?: boolean;
+export type SeoProps = SEOProps & { ignoreTitleTemplate?: boolean };
+
+export interface Props {
+  metadata?: SeoProps;
 }
+const canonicalDefault = Astro.url.href;
 
-interface Props extends SEOProps {}
-
-const canonicalDefault = Astro.url.href
-
+const { metadata } = Astro.props;
 const {
   title = BUSINESS_CONFIG.name,
   description = BUSINESS_CONFIG.description,
   canonical = canonicalDefault,
   openGraph = {},
-  twitter = BUSINESS_CONFIG.social?.twitter,
   ignoreTitleTemplate = false,
   ...rest
-} = Astro.props
+} = metadata ?? {};
 
-// Extraer la primera imagen de openGraph si existe
-const ogImage = openGraph?.images?.[0]
-const ogImageUrl = ogImage?.url || BUSINESS_CONFIG.openGraph
-
-// Asegurar que la URL sea absoluta
-const absoluteImageUrl = ogImageUrl?.startsWith('http') ? ogImageUrl :
-  (ogImageUrl?.startsWith('/') ? `${Astro.site}${ogImageUrl}` :
-  (ogImageUrl ? `${Astro.site}/${ogImageUrl}` : BUSINESS_CONFIG.openGraph))
+const ogImageUrl = (openGraph as any)?.image?.url || BUSINESS_CONFIG.openGraph;
+const absoluteImageUrl = ogImageUrl?.startsWith("http")
+  ? ogImageUrl
+  : ogImageUrl?.startsWith("/")
+    ? `${Astro.site}${ogImageUrl}`
+    : ogImageUrl
+      ? `${Astro.site}/${ogImageUrl}`
+      : BUSINESS_CONFIG.openGraph;
 ---
 
-<AstroSeo
+<SEO
   title={title}
   titleTemplate={ignoreTitleTemplate ? undefined : `%s - ${BUSINESS_CONFIG.name}`}
   description={description}
   canonical={canonical}
   openGraph={{
-    url: canonical,
-    title: title,
-    description: description,
-    images: openGraph?.images?.length ? openGraph.images.map(img => ({
-      url: img.url?.startsWith('http') ? img.url :
-        (img.url?.startsWith('/') ? `${Astro.site}${img.url}` :
-        (img.url ? `${Astro.site}/${img.url}` : BUSINESS_CONFIG.openGraph)),
-      width: img.width || 1200,
-      height: img.height || 630,
-      alt: img.alt || title,
-      type: img.type || "image/jpeg",
-    })) : [
-      {
-        url: absoluteImageUrl,
-        width: 1200,
-        height: 630,
-        alt: title,
-        type: "image/jpeg",
-      },
-    ],
-    site_name: BUSINESS_CONFIG.name,
-    type: "website",
-    locale: "es_ES",
+    basic: {
+      title: title,
+      type: "website",
+      image: absoluteImageUrl,
+    },
+    optional: {
+      description: description,
+      siteName: BUSINESS_CONFIG.name,
+      locale: "es_ES",
+    },
   }}
   twitter={{
-    handle: twitter ?? "@yourhandle",
+    card: "summary_large_image",
     site: BUSINESS_CONFIG.site,
-    cardType: "summary_large_image",
+    creator: BUSINESS_CONFIG.social?.twitter ?? "@yourhandle",
   }}
   {...rest}
 />
-
-<!-- Additional Twitter meta tags -->
-<meta name="twitter:image" content={absoluteImageUrl} />
-<meta name="twitter:image:alt" content={title} />
-
-<meta name="author" content={BUSINESS_CONFIG.name} />
-
-<!-- Canonical URL -->
-<link rel="canonical" href={canonical} />
-
-<!-- Additional SEO -->
-<meta name="robots" content="index, follow" />
-<meta name="googlebot" content="index, follow" />

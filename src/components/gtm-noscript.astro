@@ -5,18 +5,16 @@ interface Props {
   id?: string;
 }
 
-const { id = BUSINESS_CONFIG.googleTagManager?.id ?? undefined } = Astro.props;
+const id = Astro.props.id ?? BUSINESS_CONFIG.googleTagManager?.id;
 ---
 
-<!-- This is opening of <body> --><!-- Google Tag Manager (noscript) -->{
-  id && (
-    <noscript>
-      <iframe
-        src={`https://www.googletagmanager.com/ns.html?id=${id}`}
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"
-      />
-    </noscript>
-  )
-}
+{id && (
+  <noscript>
+    <iframe
+      src={`https://www.googletagmanager.com/ns.html?id=${id}`}
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+    />
+  </noscript>
+)}
