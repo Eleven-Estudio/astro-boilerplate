@@ -1,34 +1,27 @@
 ---
-import '@/assets/css/global.css'
-import Seo from '@/components/fundations/seo.astro';
-import Meta from '@/components/fundations/meta.astro';
-import Favicons from '@/components/fundations/favicons.astro';
-import GtmNoscript from '@/components/gtm-noscript.astro';
-import TailwindIndicator from '@/components/tailwind-indicator.astro';
-import type { AstroSeoProps } from '@astrolib/seo';
+import "@/assets/css/global.css";
+import { Font } from "astro:assets";
+import type { SEOProps } from "astro-seo";
+import Favicons from "@/components/fundations/favicons.astro";
+import Meta from "@/components/fundations/meta.astro";
+import Seo from "@/components/fundations/seo.astro";
+import GtmNoscript from "@/components/gtm-noscript.astro";
+import TailwindIndicator from "@/components/tailwind-indicator.astro";
 
 interface Props {
-  metadata?: AstroSeoProps;
+  metadata?: SEOProps;
 }
 
 const { metadata } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang='es' class:list={['scroll-smooth']}>
+<html lang="es" class:list={['scroll-smooth']}>
   <head>
     <Meta />
     <Seo {...metadata} />
     <Favicons />
-
-    <!-- FONTS -->
-    <link
-      rel='preload'
-      href='/fonts/open-sans-variable.woff2'
-      as='font'
-      type='font/woff2'
-      crossorigin='anonymous'
-    />
+    <Font cssVariable="--font-geist" />
   </head>
   <body>
     <GtmNoscript />

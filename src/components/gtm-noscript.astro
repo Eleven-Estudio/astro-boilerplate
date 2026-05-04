@@ -8,8 +8,7 @@ interface Props {
 const { id = BUSINESS_CONFIG.googleTagManager?.id ?? undefined } = Astro.props;
 ---
 
-<!-- This is opening of <body> --><!-- Google Tag Manager (noscript) -->{
-  id && (
+<!-- This is opening of <body> --> <!-- Google Tag Manager (noscript) --> {id && (
     <noscript>
       <iframe
         src={`https://www.googletagmanager.com/ns.html?id=${id}`}
@@ -18,5 +17,4 @@ const { id = BUSINESS_CONFIG.googleTagManager?.id ?? undefined } = Astro.props;
         style="display:none;visibility:hidden"
       />
     </noscript>
-  )
-}
+  )}

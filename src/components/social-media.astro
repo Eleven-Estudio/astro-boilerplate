@@ -1,20 +1,9 @@
 ---
-import { BUSINESS_CONFIG } from "@/config/business";
-import { cls11 } from "@/lib/utils";
-import Email from "@/components/icons/email.astro";
-import Facebook from "@/components/icons/facebook.astro";
-import Instagram from "@/components/icons/instagram.astro";
-import Linkedin from "@/components/icons/linkedin.astro";
-import Tiktok from "@/components/icons/tiktok.astro";
-import Twitter from "@/components/icons/twitter.astro";
-import Youtube from "@/components/icons/youtube.astro";
-
 const { class: className, ...rest } = Astro.props;
 ---
 
 <ul class={cls11(className)} {...rest}>
-  {
-    BUSINESS_CONFIG.email && (
+  {BUSINESS_CONFIG.email && (
       <li>
         <a
           href={BUSINESS_CONFIG.email.link}
@@ -24,10 +13,8 @@ const { class: className, ...rest } = Astro.props;
           <span class="sr-only">Email</span>
         </a>
       </li>
-    )
-  }
-  {
-    BUSINESS_CONFIG.social.facebook && (
+    )}
+  {BUSINESS_CONFIG.social.facebook && (
       <li>
         <a
           href={BUSINESS_CONFIG.social.facebook}
@@ -39,10 +26,8 @@ const { class: className, ...rest } = Astro.props;
           <span class="sr-only">Facebook</span>
         </a>
       </li>
-    )
-  }
-  {
-    BUSINESS_CONFIG.social.instagram && (
+    )}
+  {BUSINESS_CONFIG.social.instagram && (
       <li>
         <a
           href={BUSINESS_CONFIG.social.instagram}
@@ -54,10 +39,8 @@ const { class: className, ...rest } = Astro.props;
           <span class="sr-only">Instagram</span>
         </a>
       </li>
-    )
-  }
-  {
-    BUSINESS_CONFIG.social.linkedin && (
+    )}
+  {BUSINESS_CONFIG.social.linkedin && (
       <li>
         <a
           href={BUSINESS_CONFIG.social.linkedin}
@@ -69,10 +52,8 @@ const { class: className, ...rest } = Astro.props;
           <span class="sr-only">Linkedin</span>
         </a>
       </li>
-    )
-  }
-  {
-    BUSINESS_CONFIG.social.twitter && (
+    )}
+  {BUSINESS_CONFIG.social.twitter && (
       <li>
         <a
           href={BUSINESS_CONFIG.social.twitter}
@@ -84,10 +65,8 @@ const { class: className, ...rest } = Astro.props;
           <span class="sr-only">Twitter</span>
         </a>
       </li>
-    )
-  }
-  {
-    BUSINESS_CONFIG.social.tiktok && (
+    )}
+  {BUSINESS_CONFIG.social.tiktok && (
       <li>
         <a
           href={BUSINESS_CONFIG.social.tiktok}
@@ -99,10 +78,8 @@ const { class: className, ...rest } = Astro.props;
           <span class="sr-only">Tiktok</span>
         </a>
       </li>
-    )
-  }
-  {
-    BUSINESS_CONFIG.social.youtube && (
+    )}
+  {BUSINESS_CONFIG.social.youtube && (
       <li>
         <a
           href={BUSINESS_CONFIG.social.youtube}
@@ -114,6 +91,5 @@ const { class: className, ...rest } = Astro.props;
           <span class="sr-only">Youtube</span>
         </a>
       </li>
-    )
-  }
+    )}
 </ul>

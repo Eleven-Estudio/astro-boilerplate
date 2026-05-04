@@ -18,7 +18,7 @@ const button = cva(
         lg: "px-6 py-3 text-lg",
       },
     },
-  },
+  }
 );
 
 type BaseProps = VariantProps<typeof button> & {
@@ -39,11 +39,8 @@ export type Props = ButtonProps | LinkProps;
 
 const {
   class: className,
-  //@ts-ignore
   variant = "primary",
-  //@ts-ignore
   size = "md",
-  //@ts-ignore
   disabled = false,
   href,
   ...props
@@ -53,14 +50,14 @@ const {
 {href ? (
   <a
     href={href}
-    class={button({ variant, size, className })}
+    class={cn(button({ variant, size }), className)}
     {...(props as any)}
   >
     <slot />
   </a>
 ) : (
   <button
-    class={button({ variant, size, className })}
+    class={cn(button({ variant, size }), className)}
     disabled={disabled}
     {...(props as any)}
   >
