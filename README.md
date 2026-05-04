@@ -1,118 +1,96 @@
-<p align="center">
-  <a href="https://elevenestudio.com">
-    <img src="https://drive.google.com/uc?id=1y3czp-T2PxOi2R72PqOoFVGw4lACsSWA&export=download" width="300px" height="125px" alt="Eleven logo"/>
-  </a>
-</p>
+# Astro Template Eleven
 
-<h1 align="center">
-  🚀 Astro template with React and Tailwindcss (by Eleven Estudio)
-</h1>
+Plantilla de Astro para sitios web de alto rendimiento, optimizada para SEO y experiencia de desarrollo.
 
-<p align="center">
-  Template for creating websites with Astro with React and Tailwindcss following best practices: Continuos Integrations and linting
-</p>
+## Valor que te da
 
-# ⚡️ **Using this Astro template**
+- **SEO listo para producción** — Meta tags, Open Graph, Twitter cards, sitemap, robots.txt
+- **Typo seguro** — TypeScript strict mode con controles de tipos exhaustivos
+- **Code quality automático** — Ultracite + Biome: linting y formatting en cada commit
+- **Fuentes optimizadas** — Geist via astro/fonts con preload y fallbacks automáticos
+- **Dark mode desde el inicio** — CSS variables con Tailwind v4 y modo oscuro listo
+- **UI components** — Sistema de componentes con shadcn/Base UI pattern
 
-1. Create your project based on this template:
-    - a) If you want to create a GitHub repository, we would recommend to use the GitHub "Use this template" button and clone your newly created repository
-    - b) If you prefer to just create a local project, you can use [degit](https://github.com/Rich-Harris/degit):
+## Quick Start
 
-        ```bash
-          npx degit elevenestudio/astro-boilerplate#main my-app
-        ```
+```bash
+# Clonar template
+npx degit elevenestudio/astro-template-eleven my-site
 
-2. Update your project meta-information:
-    - [ ] Update the [`package.json`](./package.json):
-    - [ ] Specify proper values for the `name`, `author` and `license` properties
-    - [ ] Specify the file name for the `main` and `module` properties
-    - [ ] Change the author in [`LICENSE`](./package.json)
-    - [ ] Clean up this [`README.md`](https://github.com/elevenestudio/astro-template-eleven/blob/main/README.md)
+# Instalar dependencias
+cd my-site
+pnpm install
 
-# 🔦 **Linting**
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun lint`               | Run Biome linter                                 |
-| `bun lint:fix`           | Fix Biome lint issues                           |
-
-# 🗂️ **Project Structure**
-
-Inside of your project, you'll see the following folders and files:
-
-```
-/
-├── public/
-|-- └── images
-├── src/
-│   └── components/
-│   └── config/
-│   └── content/
-│   └── layouts/
-│   └── lib/
-│   └── pages/
-│       └── index.astro
-│   └── types/
-└── package.json
+# Desarrollar
+pnpm dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Configuración inicial
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React components.
+1. Editá `business.json` — Datos de tu empresa (nombre, contacto, redes, GTM)
+2. Editá `astro.config.mjs` — `site` con tu URL production
+3. Editá `public/manifest.webmanifest` — Info de tu sitio
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Tech Stack
 
-# 🧞 **Commands**
+| Tecnología | Propósito |
+|------------|-----------|
+| Astro v6 | Framework web |
+| React 19 | Islands interactivos |
+| Tailwind v4 | Estilos con CSS variables |
+| TypeScript | Tipado estático |
+| Biome 2.4 | Linting + formatting |
+| Ultracite | Pipeline de CI/CD |
+| Vercel | Deployment |
 
-All commands are run from the root of the project, from a terminal:
+## Comandos
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+```bash
+pnpm dev      # Dev server en localhost:4321
+pnpm build    # Build producción
+pnpm preview  # Preview del build
+pnpm check    # Lint + TypeScript
+pnpm fix      # Auto-fix issues
+```
 
-# 🌈 **Tech Stack**
+## Estructura
 
-- [Astro](https://astro.build/)
-- [Tailwindcss](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org) [Pending]
-- [Vitest](https://vitest.dev/) [Pending]
-- [Biome](https://biomejs.dev/) for linting and formatting
-- [husky](https://typicode.github.io/husky/)
-- [lint-staged](https://github.com/okonet/lint-staged)
-- [commitlint](https://commitlint.js.org/#/)
-- [ls-lint](https://ls-lint.org/)
-- [GitHub Action Workflows](https://github.com/features/actions) set up to run tests and linting on push
-- [Makefile](https://github.com/CodelyTV/typescript-react_library-vite_template/blob/main/Makefile) for standardize how to run projects
-- [.editorconfig](https://editorconfig.org) for sharing the IDE config
-- [Pages CMS](https://pagescms.org/) for managing business data through `.pages.yml` and `business.json`
+```
+src/
+├── assets/css/       # Tailwind + global styles
+├── components/
+│   ├── fundations/  # Meta, SEO, Favicons
+│   ├── globals/      # Button, etc.
+│   ├── icons/        # SVG icons
+│   └── ui/           # shadcn-style components
+├── config/           # business.ts (datos de empresa)
+├── layouts/          # base-layout.astro
+├── lib/              # utils.ts (cn function)
+└── pages/            # Rutas de Astro
+```
 
-# 👌 **Eleven Estudio Quality Standards**
+## Configuración de negocio
 
-Publishing this package we are committing ourselves to the following code quality standards:
+`business.json` es la fuente de verdad para:
 
-- 🤝 Respect **Semantic Versioning**: No breaking changes in patch or minor versions
-- 🤏 No surprises in transitive dependencies: Use the **bare minimum dependencies** needed to meet the purpose
-- 🎯 **One specific purpose** to meet without having to carry a bunch of unnecessary other utilities
-- ✅ **Tests** as documentation and usage examples
-- 📖 **Well documented ReadMe** showing how to install and use
-- ⚖️ **License favoring Open Source** and collaboration
+```json
+{
+  "name": "Tu Empresa",
+  "site": "https://tuempresa.com",
+  "contact": { "tel": {...}, "email": "...", "whatsapp": {...} },
+  "social": { "facebook": "...", "instagram": "...", "linkedin": "..." },
+  "googleTagManager": { "id": "GTM-XXXXXXX" }
+}
+```
 
-# **Contributions**
+## Deployment a Vercel
 
-Everyone is welcome to contribute to this project. Feel free to open an issue if you have question or found a bug.
+```bash
+pnpm build
+```
 
-# **Additional Checks**
+Vercel detecta automáticamente la configuración del adapter en `astro.config.mjs`.
 
-This README.md was linted with
-[markdownlint](https://github.com/DavidAnson/vscode-markdownlint)
+---
 
-## **Related information**
-
-We draw some inspiration from [CodelyTV](https://github.com/CodelyTV) and [ixartz](https://github.com/ixartz/Astro-boilerplate) projects or templates.
-
-Made with ♥ by [Eleven Estudio](https://elevenestudio.com)
+Hecho con ♥ por [Eleven Estudio](https://elevenestudio.com)
