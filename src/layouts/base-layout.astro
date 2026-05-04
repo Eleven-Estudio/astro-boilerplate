@@ -1,15 +1,15 @@
 ---
 import "@/assets/css/global.css";
 import { Font } from "astro:assets";
-import type { SEOProps } from "astro-seo";
 import Favicons from "@/components/fundations/favicons.astro";
 import Meta from "@/components/fundations/meta.astro";
+import type { SeoProps } from "@/components/fundations/seo.astro";
 import Seo from "@/components/fundations/seo.astro";
 import TailwindIndicator from "@/components/tailwind-indicator.astro";
 import { BUSINESS_CONFIG } from "@/config/business";
 
 interface Props {
-  metadata?: SEOProps;
+  metadata?: SeoProps;
 }
 
 const { metadata } = Astro.props;
@@ -20,7 +20,7 @@ const gtmId = BUSINESS_CONFIG.googleTagManager?.id;
 <html lang="es" class:list={['scroll-smooth']}>
   <head>
     <Meta />
-    <Seo {...metadata} />
+    <Seo metadata={metadata} />
     <Favicons />
     <Font cssVariable="--font-geist" />
     <Fragment

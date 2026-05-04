@@ -1,22 +1,27 @@
 ---
 import type { SEOProps } from "astro-seo";
+import { SEO } from "astro-seo";
 import { BUSINESS_CONFIG } from "@/config/business";
 
-export interface Props extends SEOProps {}
+export type SeoProps = SEOProps & { ignoreTitleTemplate?: boolean };
+
+export interface Props {
+  metadata?: SeoProps;
+}
 const canonicalDefault = Astro.url.href;
 
+const { metadata } = Astro.props;
 const {
   title = BUSINESS_CONFIG.name,
   description = BUSINESS_CONFIG.description,
   canonical = canonicalDefault,
   openGraph = {},
-  twitter = BUSINESS_CONFIG.social?.twitter,
   ignoreTitleTemplate = false,
   ...rest
-} = Astro.props;
+} = metadata ?? {};
 
-const ogImageUrl = openGraph?.image?.url || BUSINESS_CONFIG.openGraph;
-const _absoluteImageUrl = ogImageUrl?.startsWith("http")
+const ogImageUrl = (openGraph as any)?.image?.url || BUSINESS_CONFIG.openGraph;
+const absoluteImageUrl = ogImageUrl?.startsWith("http")
   ? ogImageUrl
   : ogImageUrl?.startsWith("/")
     ? `${Astro.site}${ogImageUrl}`
@@ -45,15 +50,7 @@ const _absoluteImageUrl = ogImageUrl?.startsWith("http")
   twitter={{
     card: "summary_large_image",
     site: BUSINESS_CONFIG.site,
-    creator: twitter ?? "@yourhandle",
+    creator: BUSINESS_CONFIG.social?.twitter ?? "@yourhandle",
   }}
   {...rest}
 />
-
-<meta name="twitter:image" content={absoluteImageUrl}>
-<meta name="twitter:image:alt" content={title}>
-
-<meta name="author" content={BUSINESS_CONFIG.name}>
-
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
