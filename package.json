@@ -10,6 +10,9 @@
     "astro": "^6.1.8",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^1.1.0",
+    "@react-email/components": "^0.5.1",
+    "@react-email/render": "^2.0.4",
+    "@sentry/astro": "^10.6.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "libphonenumber-js": "^1.12.13",
@@ -17,6 +20,7 @@
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "tailwind-merge": "^3.3.1",
+    "resend": "^6.0.1",
     "tailwindcss": "latest",
     "vitest": "^3.2.4"
   },
