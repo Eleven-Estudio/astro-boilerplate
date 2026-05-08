@@ -10,7 +10,6 @@ ignore:
   - src/env.d.ts
   - node_modules
   - .vscode
-  - .husky
   - .git
   - public
   - .astro
