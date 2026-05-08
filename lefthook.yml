@@ -1,13 +1,13 @@
-pre-commit:
-  jobs:
-    - run: pnpm exec ultracite fix {staged_files}
-      glob:
-        - "**/*.js"
-        - "**/*.jsx"
-        - "**/*.ts"
-        - "**/*.tsx"
-        - "**/*.json"
-        - "**/*.jsonc"
-        - "**/*.css"
-        - "**/*.astro"
-      stage_fixed: true
+# pre-commit:
+#   jobs:
+#     - run: pnpm exec ultracite fix {staged_files}
+#       glob:
+#         - "**/*.js"
+#         - "**/*.jsx"
+#         - "**/*.ts"
+#         - "**/*.tsx"
+#         - "**/*.json"
+#         - "**/*.jsonc"
+#         - "**/*.css"
+#         - "**/*.astro"
+#       stage_fixed: true
