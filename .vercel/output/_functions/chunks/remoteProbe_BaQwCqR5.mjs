@@ -1,12 +1,12 @@
 (function() {
 	try {
 		var e = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : {};
-		e.SENTRY_RELEASE = { id: "719bb25958636c71e7f994dd82ed8ed1f05f052c" };
+		e.SENTRY_RELEASE = { id: "3cfc4a7f4d9de9546a72b0650dc47bc9ba2e7716" };
 		var n = new e.Error().stack;
 		n && (e._sentryDebugIds = e._sentryDebugIds || {}, e._sentryDebugIds[n] = "121fb40d-e497-487e-a430-53647d50fdeb", e._sentryDebugIdIdentifier = "sentry-dbid-121fb40d-e497-487e-a430-53647d50fdeb");
 	} catch (e) {}
 })();
-import { E as FailedToFetchRemoteImageDimensions, Y as NoImageMetadata, ht as AstroError, rt as RemoteImageNotAllowed } from "./path_CMqV8SoO.mjs";
+import { E as FailedToFetchRemoteImageDimensions, Y as NoImageMetadata, ht as AstroError, rt as RemoteImageNotAllowed } from "./path_BSZ3kclx.mjs";
 //#region node_modules/.pnpm/@astrojs+internal-helpers@0.10.0/node_modules/@astrojs/internal-helpers/dist/remote.js
 function matchPattern(url, remotePattern) {
 	return matchProtocol(url, remotePattern.protocol) && matchHostname(url, remotePattern.hostname, true) && matchPort(url, remotePattern.port) && matchPathname(url, remotePattern.pathname, true);
