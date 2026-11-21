@@ -5,6 +5,8 @@ import Favicons from "@/components/fundations/favicons.astro";
 import Meta from "@/components/fundations/meta.astro";
 import type { SeoProps } from "@/components/fundations/seo.astro";
 import Seo from "@/components/fundations/seo.astro";
+import Gtm from "@/components/gtm.astro";
+import GtmNoscript from "@/components/gtm-noscript.astro";
 import TailwindIndicator from "@/components/tailwind-indicator.astro";
 import { BUSINESS_CONFIG } from "@/config/business";
 
@@ -13,35 +15,20 @@ interface Props {
 }
 
 const { metadata } = Astro.props;
-const gtmId = BUSINESS_CONFIG.googleTagManager?.id;
 ---
 
 <!doctype html>
-<html lang="es" class:list={["scroll-smooth"]}>
+<html lang={BUSINESS_CONFIG.lang} class="scroll-smooth">
   <head>
     <Meta />
     <Seo metadata={metadata} />
     <Favicons />
-    <Font cssVariable="--font-geist" />
-    <Fragment
-      set:html={gtmId
-        ? `<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');</script>`
-        : ""}
-    />
+    <Font cssVariable="--font-geist" preload />
+    <Font cssVariable="--font-geist-mono" />
+    <Gtm />
   </head>
   <body>
-    {
-      gtmId && (
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-            height="0"
-            width="0"
-            style="display:none;visibility:hidden"
-          />
-        </noscript>
-      )
-    }
+    <GtmNoscript />
     <main>
       <slot />
     </main>

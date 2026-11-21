@@ -6,15 +6,17 @@ interface Props {
 }
 
 const id = Astro.props.id ?? BUSINESS_CONFIG.googleTagManager?.id;
+const enabled = Boolean(id) && id !== "GTM-XXXXXXX";
 ---
 
-{id && (
+{enabled && (
   <noscript>
     <iframe
       src={`https://www.googletagmanager.com/ns.html?id=${id}`}
       height="0"
       width="0"
       style="display:none;visibility:hidden"
+      title="Google Tag Manager"
     />
   </noscript>
 )}

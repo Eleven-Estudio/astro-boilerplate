@@ -29,6 +29,9 @@ export type Business = {
     linkedin?: string;
     twitter?: string;
   };
+  address?: {
+    location?: string;
+  };
   openGraph?: string;
   settings?: {
     emailSender: string;

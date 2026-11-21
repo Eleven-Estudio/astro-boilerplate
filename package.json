@@ -1,52 +1,66 @@
 {
-  "author": "Eleven Estudio (https://github.com/elevenestudio)",
-  "dependencies": {
-    "@astrojs/check": "^0.9.9",
-    "@astrojs/react": "^6.0.0",
-    "@astrojs/sitemap": "^3.7.3",
-    "@astrojs/vercel": "^11.0.0",
-    "@base-ui/react": "^1.4.1",
-    "@react-email/components": "^0.5.1",
-    "@react-email/render": "^2.0.4",
-    "@sentry/astro": "^10.6.0",
-    "@tailwindcss/vite": "^4.1.12",
-    "astro": "^7.0.3",
-    "astro-robots-txt": "^1.0.0",
-    "astro-seo": "^1.1.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "libphonenumber-js": "^1.12.13",
-    "lucide-react": "^1.14.0",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
-    "resend": "^6.0.1",
-    "tailwind-merge": "^3.3.1",
-    "tailwindcss": "latest",
-    "vitest": "^3.2.4"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.4.12",
-    "@tailwindcss/aspect-ratio": "0.4.2",
-    "@tailwindcss/typography": "0.5.16",
-    "@types/react": "19.1.11",
-    "@types/react-dom": "19.1.8",
-    "lefthook": "^2.1.6",
-    "typescript": "5.9.2",
-    "ultracite": "^7.6.3"
-  },
-  "license": "MIT",
   "name": "website",
+  "version": "1.1.0",
+  "license": "MIT",
+  "author": "Eleven Estudio (https://github.com/elevenestudio)",
+  "type": "module",
   "scripts": {
     "astro": "astro",
     "build": "astro build",
+    "check": "ultracite check . && astro check",
     "dev": "astro dev",
     "fix": "ultracite fix .",
-    "check": "ultracite check .",
+    "lint": "ultracite check .",
+    "prepare": "lefthook install",
     "preview": "astro preview",
     "start": "astro dev",
     "test": "vitest",
-    "prepare": "lefthook install"
+    "test:run": "vitest run",
+    "typecheck": "astro check"
   },
-  "type": "module",
-  "version": "1.1.0"
+  "dependencies": {
+    "@astrojs/react": "^7.1.9",
+    "@astrojs/sitemap": "^3.7.6",
+    "@astrojs/vercel": "^11.0.22",
+    "@base-ui/react": "^1.9.0",
+    "@react-email/render": "^2.3.1",
+    "@sentry/astro": "^11.16.0",
+    "astro": "^7.4.13",
+    "astro-seo": "^1.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "libphonenumber-js": "^1.13.17",
+    "lucide-react": "^1.77.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-email": "^6.11.16",
+    "resend": "^6.39.0",
+    "tailwind-merge": "^3.7.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@biomejs/biome": "2.6.8",
+    "@tailwindcss/typography": "0.5.20",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^22.20.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "lefthook": "^2.2.2",
+    "tailwindcss": "^4.3.5",
+    "typescript": "6.0.3",
+    "ultracite": "^8.3.1",
+    "vitest": "^5.1.1"
+  },
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@sentry/cli",
+      "esbuild",
+      "lefthook",
+      "sharp"
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 # **TO DO's to change for each project**
 
-- [ ] Create branchs
+- [ ] Create branches
   - [ ] Branch Preview
   - [ ] Branch Develop
 
@@ -17,12 +17,12 @@
     - [ ] Change short_name
     - [ ] Change theme_color
     - [ ] Change background_color
-- [ ] Change config [`astro.config.mjs`](./astro.config.mjs)
-  - [ ] Change url of site
-- [ ] Change [`config app`](./config/)
-  - [ ] Change APP_CONFIg
-  - [ ] Change OPEN_GRAPH Default
-- [ ] Adapt Business Data
+- [ ] Adapt business data in [`business.json`](./business.json) (also sets the site URL used by `astro.config.mjs`)
+  - [ ] Change `site`
+  - [ ] Change `openGraph` default image (1200x630)
+  - [ ] Change `googleTagManager.id`
+  - [ ] Configure `settings.emailSender` (must be a domain verified in Resend)
+- [ ] Copy `.env.example` to `.env` and fill the variables
 - [ ] Minify Scripts
 - [ ] Minify Styles
 - [ ] Optimize Images
@@ -35,11 +35,11 @@
 
 - More info of [Favicon](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)
 - More info of [Open Graph](https://simplified.com/blog/design/open-graph-image-everything-you-need-to-know/)
-- More info fo [Schema.org](https://schema.org/docs/gs.html)
+- More info of [Schema.org](https://schema.org/docs/gs.html)
   - <https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data?hl=es>
   - <https://www.iebschool.com/blog/que-es-schema-org-seo-sem/>
-- More info of [astro-imagetools](https://astro-imagetools-docs.vercel.app/)
-- More info of [astro-prefetch](https://docs.astro.build/en/guides/integrations-guide/prefetch/)
+- More info of [Astro images](https://docs.astro.build/en/guides/images/)
+- More info of [Astro prefetch](https://docs.astro.build/en/guides/prefetch/)
 - More info of [astro-sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
 - More info of [Fonts Optimization](https://www.youtube.com/watch?v=G0cOQ79WKZE)
   - <https://www.zachleat.com/web/glyphhanger/>

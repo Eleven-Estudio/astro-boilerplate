@@ -1,33 +1,42 @@
-import BUSINESS from "business.json";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import type { Business } from "@/types/business";
+import BUSINESS from "../../business.json" with { type: "json" };
 
 const DATA_BUSINESS: Business = BUSINESS;
 
-const phoneNumber = `+${DATA_BUSINESS.contact.tel.ext}${DATA_BUSINESS.contact.tel.number}`;
-const parsedPhoneNumber = parsePhoneNumberFromString(phoneNumber, {
-  defaultCountry: "GT",
-  defaultCallingCode: "502",
-  extract: true,
-});
+const parsePhone = (ext?: number, number?: number) =>
+  number
+    ? parsePhoneNumberFromString(`+${ext ?? ""}${number}`, {
+        defaultCallingCode: ext ? String(ext) : undefined,
+        extract: true,
+      })
+    : undefined;
+
+const { tel, whatsapp } = DATA_BUSINESS.contact;
+const parsedPhone = parsePhone(tel.ext, tel.number);
+const parsedWhatsapp = parsePhone(whatsapp?.ext ?? tel.ext, whatsapp?.number);
 
 export const BUSINESS_CONFIG = {
   ...DATA_BUSINESS,
   phone: {
-    formatted: parsedPhoneNumber?.formatInternational(),
-    ext: DATA_BUSINESS.contact.tel.ext,
-    number: DATA_BUSINESS.contact.tel.number,
-    country: parsedPhoneNumber?.country,
-    link: `tel:${parsedPhoneNumber?.number}`,
+    formatted: parsedPhone?.formatInternational(),
+    ext: tel.ext,
+    number: tel.number,
+    country: parsedPhone?.country,
+    link: parsedPhone ? `tel:${parsedPhone.number}` : undefined,
   },
-  whatsapp: {
-    formatted: parsedPhoneNumber?.formatInternational(),
-    ext: DATA_BUSINESS.contact.whatsapp?.ext,
-    number: DATA_BUSINESS.contact.whatsapp?.number,
-    country: parsedPhoneNumber?.country,
-    link: (message: string) =>
-      `https://wa.me/${DATA_BUSINESS.contact.whatsapp?.ext}${DATA_BUSINESS.contact.whatsapp?.number}?text=${message}`,
-  },
+  whatsapp: parsedWhatsapp
+    ? {
+        formatted: parsedWhatsapp.formatInternational(),
+        ext: whatsapp?.ext ?? tel.ext,
+        number: whatsapp?.number,
+        country: parsedWhatsapp.country,
+        link: (message = "") =>
+          `https://wa.me/${parsedWhatsapp.number.replace("+", "")}${
+            message ? `?text=${encodeURIComponent(message)}` : ""
+          }`,
+      }
+    : null,
   email: {
     address: DATA_BUSINESS.contact.email,
     link: `mailto:${DATA_BUSINESS.contact.email}`,

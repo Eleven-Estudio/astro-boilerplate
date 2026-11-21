@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   Body,
   Column,
@@ -12,7 +13,7 @@ import {
   Section,
   Tailwind,
   Text,
-} from "@react-email/components";
+} from "react-email";
 import { twMerge } from "tailwind-merge";
 
 export interface IFormContactData {
@@ -30,7 +31,7 @@ export interface IEmailTemplate {
   };
   data: IFormContactData[];
   lang?: "es" | "en";
-  logo: {
+  logo?: {
     src: string;
     width?: number;
     alt?: string;
@@ -94,54 +95,56 @@ export const EmailContact = ({
               '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
           }}
         >
-          <Container className="mx-auto my-[40px] w-[465px] rounded border border-[#eaeaea] border-solid p-[20px]">
+          <Container className="mx-auto my-[40px] w-[465px] rounded border border-solid border-[#eaeaea] p-[20px]">
             {/* HEADER */}
 
             {/* LOGO */}
-            <Section className="mt-[32px] max-w-[600px]">
-              <Link className="no-underline" href={business.website}>
-                <Img
-                  alt={logo?.alt ?? business.name}
-                  className={twMerge(
-                    "mx-auto my-0 h-auto",
-                    logo?.className ?? ""
-                  )}
-                  src={logo.src}
-                  // width={logo.height}
-                  // height={logo.width}
-                  style={{
-                    maxWidth: `${logo?.width ?? 112}px`,
-                    width: `${logo?.width ?? 112}px`,
-                  }}
-                />
-              </Link>
-            </Section>
+            {logo?.src ? (
+              <Section className="mt-[32px] max-w-[600px]">
+                <Link className="no-underline" href={business.website}>
+                  <Img
+                    alt={logo.alt ?? business.name}
+                    className={twMerge(
+                      "mx-auto my-0 h-auto",
+                      logo.className ?? ""
+                    )}
+                    src={logo.src}
+                    style={{
+                      maxWidth: `${logo.width ?? 112}px`,
+                      width: `${logo.width ?? 112}px`,
+                    }}
+                  />
+                </Link>
+              </Section>
+            ) : null}
 
             <Section className="max-w-[600px]">
-              <Text className="mx-0 my-[20px] p-0 text-center font-bold text-[24px] text-black">
-                {title}
-              </Text>
-              {subtitle !== null && (
-                <Text className="text-[14px] text-black leading-[24px]">
+              {title ? (
+                <Text className="mx-0 my-[20px] p-0 text-center text-[24px] font-bold text-black">
+                  {title}
+                </Text>
+              ) : null}
+              {subtitle ? (
+                <Text className="text-[14px] leading-[24px] text-black">
                   {subtitle}
                 </Text>
-              )}
+              ) : null}
             </Section>
 
             {/* BODY */}
             <Section className="max-w-[600px]">
               {data.map((input) => {
-                if (!(input?.showEmpty || input?.value)) {
+                if (!(input.showEmpty || input.value)) {
                   return null;
                 }
 
-                if (!input?.colSpan) {
+                if (!input.colSpan) {
                   return (
                     <Row key={input.name}>
-                      <Column className="w-[50%] py-2 pr-6 align-top font-bold text-[14px] text-black leading-[18px]">
+                      <Column className="w-[50%] py-2 pr-6 align-top text-[14px] leading-[18px] font-bold text-black">
                         {input.name}:
                       </Column>
-                      <Column className="w-[50%] py-2 align-top text-[14px] text-black leading-[18px]">
+                      <Column className="w-[50%] py-2 align-top text-[14px] leading-[18px] text-black">
                         {input.value ?? ""}
                       </Column>
                     </Row>
@@ -150,18 +153,18 @@ export const EmailContact = ({
 
                 if (input.colSpan === "full") {
                   return (
-                    <>
+                    <Fragment key={input.name}>
                       <Row>
-                        <Column className="w-[50%] py-2 pr-6 align-top font-bold text-[14px] text-black leading-[18px]">
+                        <Column className="w-[50%] py-2 pr-6 align-top text-[14px] leading-[18px] font-bold text-black">
                           {input.name}:
                         </Column>
                       </Row>
                       <Row>
-                        <Column className="w-[50%] py-2 align-top text-[14px] text-black leading-[18px]">
+                        <Column className="w-[50%] py-2 align-top text-[14px] leading-[18px] text-black">
                           {input.value}
                         </Column>
                       </Row>
-                    </>
+                    </Fragment>
                   );
                 }
 
@@ -171,10 +174,10 @@ export const EmailContact = ({
 
             {/* FOOTER BUSINESS */}
             <Section className="max-w-[600px]">
-              <Text className="text-[14px] text-black leading-[24px]">
+              <Text className="text-[14px] leading-[24px] text-black">
                 {t.consultant}
               </Text>
-              <Text className="text-[14px] text-black leading-[18px]">
+              <Text className="text-[14px] leading-[18px] text-black">
                 {t.moreInfo} <br />
                 <Link
                   className="text-blue-600 no-underline"
@@ -185,13 +188,13 @@ export const EmailContact = ({
               </Text>
             </Section>
 
-            <Hr className="mx-0 my-[16px] w-full border border-[#eaeaea] border-solid" />
+            <Hr className="mx-0 my-[16px] w-full border border-solid border-[#eaeaea]" />
 
             {/* FOOTER */}
             <Section className="mx-auto max-w-[560px] py-1 pb-[22px]">
               <Row>
                 <Text
-                  className="py-4 text-center text-[#AFAFAF] text-sm"
+                  className="py-4 text-center text-sm text-[#AFAFAF]"
                   style={resetText}
                 >
                   {t.poweredBy}
@@ -216,7 +219,7 @@ export const EmailContact = ({
               <Row className="mx-auto w-fit">
                 <Column className="py-4 pr-4 text-center">
                   <Link
-                    className="text-center text-gray-400 text-sm underline"
+                    className="text-center text-sm text-gray-400 underline"
                     href="https://elevenestudio.link/ig"
                   >
                     {t.socialLinks.instagram}
@@ -224,7 +227,7 @@ export const EmailContact = ({
                 </Column>
                 <Column className="py-4 pr-4 text-center">
                   <Link
-                    className="text-center text-gray-400 text-sm underline"
+                    className="text-center text-sm text-gray-400 underline"
                     href="https://elevenestudio.link/wa"
                   >
                     {t.socialLinks.whatsapp}
@@ -232,7 +235,7 @@ export const EmailContact = ({
                 </Column>
                 <Column className="py-4 pr-4 text-center">
                   <Link
-                    className="text-center text-gray-400 text-sm underline"
+                    className="text-center text-sm text-gray-400 underline"
                     href="https://elevenestudio.link/fb"
                   >
                     {t.socialLinks.facebook}
@@ -240,7 +243,7 @@ export const EmailContact = ({
                 </Column>
                 <Column className="py-4 text-center">
                   <Link
-                    className="text-center text-gray-400 text-sm underline"
+                    className="text-center text-sm text-gray-400 underline"
                     href="https://elevenestudio.link/help-center"
                   >
                     {t.socialLinks.helpCenter}
@@ -249,7 +252,7 @@ export const EmailContact = ({
               </Row>
               <Row>
                 <Text
-                  className="mx-auto max-w-[65ch] py-1 text-center text-[#AFAFAF] text-sm leading-snug"
+                  className="mx-auto max-w-[65ch] py-1 text-center text-sm leading-snug text-[#AFAFAF]"
                   style={resetText}
                 >
                   {t.contactUs}
@@ -257,7 +260,7 @@ export const EmailContact = ({
               </Row>
               <Row>
                 <Text
-                  className="py-1 text-center text-[#AFAFAF] text-sm"
+                  className="py-1 text-center text-sm text-[#AFAFAF]"
                   style={resetText}
                 >
                   © {new Date().getFullYear()} Eleven Corporation, S.A.{" "}
@@ -271,5 +274,3 @@ export const EmailContact = ({
     </Html>
   );
 };
-
-export default EmailContact;

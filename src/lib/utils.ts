@@ -1,16 +1,16 @@
-import { type ClassValue, clsx } from "clsx";
+import type { ClassValue } from "clsx";
+import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function cls11(...inputs: ClassValue[]) {
-  return cn(...inputs);
-}
+/** @deprecated Use `cn` instead. Kept for backwards compatibility. */
+export const cls11 = cn;
 
 export function joinPath(...paths: string[]) {
-  return paths.join("/").replace(/\/+/g, "/");
+  return paths.join("/").replace(/\/+/gu, "/");
 }
 
 export function getCurrentPath(url: URL, level = 0) {
