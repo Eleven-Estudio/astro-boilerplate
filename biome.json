@@ -6,7 +6,7 @@
     "ultracite/biome/astro"
   ],
   "javascript": {
-    "globals": ["BUSINESS_CONFIG", "Astro", "Slots", "Attributes"]
+    "globals": ["Astro"]
   },
   "overrides": [
     {
@@ -21,7 +21,8 @@
             "noReactSpecificProps": "error",
             "noExplicitAny": "off",
             "noDoubleEquals": "off",
-            "noVar": "off"
+            "noVar": "off",
+            "noUnknownAttribute": "off"
           },
           "style": {
             "noNestedTernary": "off",
@@ -36,7 +37,13 @@
             "useDateNow": "off"
           },
           "nursery": {
-            "useSortedClasses": "off"
+            "useTailwindSortedClasses": "off"
+          },
+          "performance": {
+            "noSyncScripts": "off"
+          },
+          "security": {
+            "useIframeSandbox": "off"
           }
         }
       },
@@ -45,14 +52,6 @@
           "source": {
             "useSortedAttributes": "off"
           }
-        }
-      }
-    },
-    {
-      "includes": ["**/*.astro"],
-      "json": {
-        "formatter": {
-          "enabled": false
         }
       }
     },
@@ -67,5 +66,13 @@
         }
       }
     }
-  ]
+  ],
+  "files": {
+    "includes": [
+      "!!**/.vercel",
+      "!!**/dist",
+      "!!**/.astro",
+      "!**/public/**/*.svg"
+    ]
+  }
 }

@@ -14,8 +14,8 @@
       "type": "node-terminal"
     },
     {
-      "command": "./node_modules/.bin/astro dev",
-      "name": "Development server",
+      "command": "pnpm preview",
+      "name": "Preview build",
       "request": "launch",
       "type": "node-terminal"
     }

@@ -3,54 +3,74 @@ import type { SEOProps } from "astro-seo";
 import { SEO } from "astro-seo";
 import { BUSINESS_CONFIG } from "@/config/business";
 
-export type SeoProps = SEOProps & { ignoreTitleTemplate?: boolean };
+export type SeoProps = Partial<SEOProps> & { ignoreTitleTemplate?: boolean };
 
 export interface Props {
   metadata?: SeoProps;
 }
-const canonicalDefault = Astro.url.href;
+
+const LOCALES: Record<string, string> = {
+  es: "es_GT",
+  en: "en_US",
+};
 
 const { metadata } = Astro.props;
 const {
   title = BUSINESS_CONFIG.name,
   description = BUSINESS_CONFIG.description,
-  canonical = canonicalDefault,
-  openGraph = {},
+  canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href,
+  openGraph,
+  twitter,
   ignoreTitleTemplate = false,
+  noindex = BUSINESS_CONFIG.robots?.index === false,
+  nofollow = BUSINESS_CONFIG.robots?.follow === false,
   ...rest
 } = metadata ?? {};
 
-const ogImageUrl = (openGraph as any)?.image?.url || BUSINESS_CONFIG.openGraph;
-const absoluteImageUrl = ogImageUrl?.startsWith("http")
-  ? ogImageUrl
-  : ogImageUrl?.startsWith("/")
-    ? `${Astro.site}${ogImageUrl}`
-    : ogImageUrl
-      ? `${Astro.site}/${ogImageUrl}`
-      : BUSINESS_CONFIG.openGraph;
+const toAbsoluteUrl = (url?: URL | string) =>
+  url ? new URL(url, Astro.site ?? Astro.url).href : undefined;
+
+const ogImage =
+  toAbsoluteUrl(openGraph?.image?.url ?? openGraph?.basic?.image) ??
+  toAbsoluteUrl(BUSINESS_CONFIG.openGraph) ??
+  "";
+
+// Twitter/X expects an @handle, derive it from the profile URL when possible
+const twitterHandle = BUSINESS_CONFIG.social.twitter
+  ? `@${BUSINESS_CONFIG.social.twitter.replace(/\/+$/u, "").split("/").pop()}`
+  : undefined;
 ---
 
 <SEO
   title={title}
-  titleTemplate={ignoreTitleTemplate ? undefined : `%s - ${BUSINESS_CONFIG.name}`}
+  titleTemplate={ignoreTitleTemplate
+    ? undefined
+    : `%s - ${BUSINESS_CONFIG.name}`}
   description={description}
   canonical={canonical}
+  noindex={noindex}
+  nofollow={nofollow}
   openGraph={{
+    ...openGraph,
     basic: {
-      title: title,
+      title,
       type: "website",
-      image: absoluteImageUrl,
+      url: canonical ?? undefined,
+      ...openGraph?.basic,
+      image: ogImage,
     },
     optional: {
-      description: description,
+      description,
       siteName: BUSINESS_CONFIG.name,
-      locale: "es_ES",
+      locale: LOCALES[BUSINESS_CONFIG.lang] ?? BUSINESS_CONFIG.lang,
+      ...openGraph?.optional,
     },
   }}
   twitter={{
     card: "summary_large_image",
-    site: BUSINESS_CONFIG.site,
-    creator: BUSINESS_CONFIG.social?.twitter ?? "@yourhandle",
+    site: twitterHandle,
+    creator: twitterHandle,
+    ...twitter,
   }}
   {...rest}
 />

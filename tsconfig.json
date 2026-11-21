@@ -1,34 +1,13 @@
 {
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", ".vercel", "node_modules"],
   "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "alwaysStrict": true,
-    "baseUrl": ".",
-    "declaration": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    // Enable stricter transpilation for better output.
-    "isolatedModules": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "module": "ESNext",
-    // Enable node-style module resolution, for things like npm package imports.
-    "moduleResolution": "node",
     "noUncheckedIndexedAccess": true,
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "preserveConstEnums": true,
-    "removeComments": true,
-    // Enable JSON imports.
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "strictNullChecks": true,
-    // Enable top-level await, and other modern ESM features.
-    "target": "ESNext",
-    "types": ["astro/client"]
-  },
-  "extends": "astro/tsconfigs/strict",
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"]
+    }
+  }
 }

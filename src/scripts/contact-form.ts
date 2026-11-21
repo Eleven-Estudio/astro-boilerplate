@@ -1,7 +1,7 @@
 import { actions, isInputError } from "astro:actions";
 
-const form = document.getElementById("contact-form") as HTMLFormElement;
-const submit = document.getElementById("submit") as HTMLButtonElement;
+const form = document.querySelector("#contact-form") as HTMLFormElement;
+const submit = document.querySelector("#submit") as HTMLButtonElement;
 
 if (form) {
   form.addEventListener("submit", async (e) => {

@@ -4,10 +4,9 @@ ls:
     .jsx: kebab-case
     .ts: kebab-case
     .tsx: kebab-case
-    .astro: kebab-case | kebab-case | regex:\[[A-Za-z]+\]
+    .astro: kebab-case | regex:\[[A-Za-z]+\]
 
 ignore:
-  - src/env.d.ts
   - node_modules
   - .vscode
   - .git
